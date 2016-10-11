@@ -1,0 +1,47 @@
+{% extends 'PP_Core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1> Discover </h1>
+
+<style>
+div#line1 span#a {
+display:inline;
+    background-color: #05EDF9;
+}
+div#line1:hover span#a {
+display:none;
+}
+div#line1 span#b {
+display:none;
+}
+div#line1:hover span#b {
+display:inline;
+}
+</style>
+
+
+<div class="container">
+<div class="col-xs-12">
+  <div class="row">
+  <h2>Categories</h2>
+
+    {% for category in categories %}
+<div id="line1">
+    <div class="col-md-3 col-xs-6 col-sm-6 col-lg-3" >
+    <a href="#">
+      <div class="tile purple text-center">
+        <h3 class="title" ><span id="a">{{ category.title }} </span><span id="b">Number of inventions: {{category.quantity}}</span> </h3>
+        <div class="col-xs-12"><img class="img-responsive" style="max-height:128px; max-width:128px" /></div>
+      </div>
+    </a>
+    </div>   
+</div> 
+   {% endfor%}
+
+  </div>
+</div>
+</div>
+
+{% endblock %}

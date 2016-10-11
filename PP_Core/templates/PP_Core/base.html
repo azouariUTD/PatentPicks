@@ -2,8 +2,13 @@
 {% load staticfiles %}
 {% load static %}
 <html>
-<head>
+    <head>
 
+<title>Patent Picks</title>
+
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+lalala-->
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,11 +20,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
-
 <link rel="stylesheet" href="{% static 'css/PP_Core.css' %}">
-</head>
-
-
+        
+    </head>
 <body>
 
 <nav class="navbar navbar-default" role="navigation">
@@ -29,14 +32,18 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button> 
+
+
+    
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-left">
-        <li><a href="#">Discover</a></li>
-        <li><a href="#about">How it Works</a></li>
-        <li><a href="#anotherabout">About us</a></li>
+        <li><a href="{% url 'discover' %}">Discover</a></li>
+        <li><a href="{% url 'howitworks' %}">How it Works</a></li>
+        <li><a href="{% url 'aboutus' %}">About us</a></li>
     </ul>
-     <img class="navbar-brand text-hide" src="{% static "PP_Core/PP_Logo.png" %}" alt="Patent Pick Logo" style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/>
+
+    <a href="{%url 'home' %}"> <img class="navbar-brand text-hide"  src="{% static "PP_Core/PP_Logo.png" %}" alt="Patent Pick Logo" style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
 
     <ul class="nav navbar-nav navbar-right">
        <li>
@@ -50,16 +57,20 @@
         </form>
     </li>
   
-      <li><a href="#contact">Log in</a></li>
-      <li><a href="#anothercontact">Register</a></li>
+      <li><a href="{% url 'login' %}">Log in</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
     </ul>
   </div>
 </nav>
 
-
         
-	{% block content %}
-  {% endblock %}
+{% block content %}
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+
 
     </body>
 </html>

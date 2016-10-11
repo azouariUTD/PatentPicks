@@ -1,21 +1,7 @@
 
-
-.bottomaligned {position:absolute; bottom:0; left: 0;}
-.bottomright {position:absolute; bottom:0;  margin:7px; right: 0;}
-.bottomleft {position:absolute; bottom:0;  left: 100px;}
-.bottomrightmiddle {position:absolute; bottom:0; right: 100px;}
-
-
-
 h1 a {
-    color: #FAA405;
+    color: #05EDF9;
 }
-
-body {
-    padding-left: 20px;
-}
-
-
 
 img{
   width:100%;
@@ -23,6 +9,31 @@ img{
 }
 
 /* Bootstrap overrides - ( full disclosure - this may be an incorrect statement )*/
+.tile {  
+    width:100%;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #fff;       
+    padding: 15px;
+    margin-bottom: 20px;
+    color:#fff;
+    height: 200px; // or whatever height you want all the tiles to be
+}  
+.title {
+    margin-top: 0px;
+    text-align:center;
+}
+.purple {
+    background: #5133AB;
+}
+
+.navbar-brand
+{
+	transform: translateX(-50%);
+	left: 50%;
+	position: absolute;
+	width: 200px;
+}
 
 .navbar-toggle {
     z-index:3;
@@ -34,4 +45,5 @@ img{
 
 .jumbotron {
 	margin-bottom:0;
+
 }
