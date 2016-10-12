@@ -5,6 +5,8 @@
 
 <h1> Discover </h1>
 
+
+<!-- Engineering tradeoff: this approach worked which has inherent virtue, flexboxes ( a seemingly better choice ) don't run on IE9 -->
 <style>
 div#line1 span#a {
 display:inline;
@@ -32,7 +34,7 @@ display:inline;
     <div class="col-md-3 col-xs-6 col-sm-6 col-lg-3" >
     <a href="#">
       <div class="tile purple text-center">
-        <h3 class="title" ><span id="a">{{ category.title }} </span><span id="b">Number of inventions: {{category.quantity}}</span> </h3>
+        <h3 class="title" ><span id="a">{{ category.category_name }} </span><span id="b">Number of Inventions in {{category.category_name}}: {{category.quantity}}</span> </h3>
         <div class="col-xs-12"><img class="img-responsive" style="max-height:128px; max-width:128px" /></div>
       </div>
     </a>
