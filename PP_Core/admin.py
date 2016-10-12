@@ -6,18 +6,22 @@ from .models import Category, Inventor, Invention, InventionDetail
 class InventionInline(admin.TabularInline):
     model = Invention
     extra = 0
+    readonly_fields = ('inventor','category','invention_name','description','video','price',)
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'20'})},
         models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':35})},
     }
 
+
 class InventionDetailInline(admin.TabularInline):
     model = InventionDetail
     extra = 0
+    readonly_fields = ('user','comments','improve','pledge','isHidden','isSaved',)
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'20'})},
         models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':35})},
     }
+
 
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [InventionInline]
