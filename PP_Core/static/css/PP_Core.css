@@ -1,3 +1,4 @@
+{% load static %}
 
 h1 a {
     color: #05EDF9;
@@ -9,16 +10,6 @@ img{
 }
 
 /* Bootstrap overrides - ( full disclosure - this may be an incorrect statement )*/
-.tile {  
-    width:100%;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #fff;       
-    padding: 15px;
-    margin-bottom: 20px;
-    color:#fff;
-    height: 200px; // or whatever height you want all the tiles to be
-}  
 .title {
     margin-top: 0px;
     text-align:center;
@@ -41,9 +32,4 @@ img{
 
 .navbar {
 	margin-bottom:0;
-}
-
-.jumbotron {
-	margin-bottom:0;
-
 }
