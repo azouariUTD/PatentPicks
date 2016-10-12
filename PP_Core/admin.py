@@ -1,9 +1,37 @@
 from django.contrib import admin
+from django.forms import TextInput, Textarea
+from django.db import models
 from .models import Category, Inventor, Invention, InventionDetail
 
-admin.site.register(Category)
-admin.site.register(Inventor)
-admin.site.register(Invention)
+class InventionInline(admin.TabularInline):
+    model = Invention
+    extra = 0
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'20'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':35})},
+    }
+
+class InventionDetailInline(admin.TabularInline):
+    model = InventionDetail
+    extra = 0
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'20'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':35})},
+    }
+
+class CategoryAdmin(admin.ModelAdmin):
+    inlines = [InventionInline]
+
+class InventorAdmin(admin.ModelAdmin):
+    inlines = [InventionInline]
+
+class InventionAdmin(admin.ModelAdmin):
+    inlines = [InventionDetailInline]
+
+
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Inventor, InventorAdmin)
+admin.site.register(Invention, InventionAdmin)
 admin.site.register(InventionDetail)
 
 # Register your models here.
