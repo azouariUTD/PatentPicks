@@ -1,4 +1,5 @@
-{% load static %}
+
+
 
 h1 a {
     color: #05EDF9;
@@ -14,6 +15,7 @@ img{
     margin-top: 0px;
     text-align:center;
 }
+
 .purple {
     background: #5133AB;
 }
