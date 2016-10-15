@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Invention, Category
+from django.contrib.auth import (
+    authenticate,
+    get_user_model,
+    login,
+    logout
+)
 
 # Create your views here.
 def home(request):
@@ -19,15 +25,13 @@ def aboutus(request):
     title_from_view = "About us"
     return render(request, 'PP_Core/aboutus.html', {"title_from_view":title_from_view})
 
-def login(request):
-    title_from_view = "Login"
-    return render(request, 'PP_Core/login.html', {"title_from_view":title_from_view})
-
 def register(request):
     title_from_view = "Registration Page"
     return render(request, 'PP_Core/register.html', {"title_from_view":title_from_view})
 
-
+def login_view(request):
+    title_from_view = "Login"
+    return render(request, 'PP_Core/login.html', {"title_from_view":title_from_view})
 
 
 
