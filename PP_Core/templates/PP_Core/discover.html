@@ -8,9 +8,57 @@
 
 <!-- Engineering tradeoff: this approach worked which has inherent virtue, flexboxes ( a seemingly better choice ) don't run on IE9 -->
 <style>
+
+
+
+
+
+
+
+.nav__menu__uline__green a:hover { border-bottom:3px solid #26CC40;}
+
+
+
+/*  from 10/12 stuff  */
+
+
+.bottomaligned {position:absolute; bottom:0; left: 0;}
+  .bottomright {position:absolute; bottom:0;  margin:7px; right: 0;}
+  .bottomleft {position:absolute; bottom:0;  left: 100px;}
+.bottomrightmiddle {position:absolute; bottom:0; right: 100px;}
+  .fixedheight { height: 100px;  width: 243px;  position:relative; border:1px solid;}
+
+
+h1 a {
+    color: #05EDF9;
+}
+
+img{
+  width:100%;
+  height:auto;
+}
+
+
+.tile {
+    width:100%;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    color:#fff;
+    height: 200px; // or whatever height you want all the tiles to be
+}
+.title {
+    margin-top: 0px;
+    text-align:center;
+}
+.purple {
+    background: #5144AB;
+}
+
 div#line1 span#a {
 display:inline;
-    background-color: #05EDF9;
 }
 div#line1:hover span#a {
 display:none;
@@ -21,13 +69,14 @@ display:none;
 div#line1:hover span#b {
 display:inline;
 }
+
 </style>
 
 
 <div class="container">
 <div class="col-xs-12">
   <div class="row">
-  <h2>Categories</h2>
+  <h2>Discoveries</h2>
 
     {% for category in categories %}
 <div id="line1">
@@ -38,12 +87,11 @@ display:inline;
         <div class="col-xs-12"><img class="img-responsive" style="max-height:128px; max-width:128px" /></div>
       </div>
     </a>
-    </div>   
-</div> 
+    </div>
+</div>
    {% endfor%}
 
   </div>
 </div>
 </div>
-
 {% endblock %}
