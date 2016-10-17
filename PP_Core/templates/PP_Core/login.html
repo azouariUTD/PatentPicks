@@ -4,9 +4,121 @@
 
 {% block content %}
 
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 
-<h1> {{ title_from_view }} <h1>
+
+      <!-- Website CSS style -->
 
 
+      <!-- Website Font style -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+      <!-- Google Fonts -->
+      <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+      <title>Admin</title>
+   </head>
+   <body style = "height: 100%;
+   background-repeat: no-repeat;
+   background-color:  #f2f2f2;
+   font-family: 'Oxygen', sans-serif;">
+      <div class="container" >
+         <div class="row main" style = "margin-top: 70px; margin-bottom: 30px;">
+            <div class="main-login main-center" style = "background-color: #fff;
+    /* shadows and rounded borders */
+     -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+
+   margin: 0 auto;
+   max-width: 400px;
+    padding: 40px 40px;">
+                         <h1 class="title">Log In</h1>
+
+
+                    <br/>
+
+               <form class="form-horizontal" method="POST" action="#">{% csrf_token %}
+
+
+                   <div class="form-group">
+                     <label for="username" class="cols-sm-2 control-label"></label>
+                     <div class="cols-sm-10">
+                        <div class="input-group">
+                           <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                           <input type="text" class="form-control" name="username" id="username"  placeholder="Email"/>
+                        </div>
+                     </div>
+                  </div>
+
+
+                  <div class="form-group">
+                     <label for="password" class="cols-sm-2 control-label"></label>
+                     <div class="cols-sm-10">
+                        <div class="input-group">
+                           <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                           <input type="password" class="form-control" name="password" id="password"  placeholder="Password"/>
+                        </div>
+                     </div>
+                  </div>
+                        <div class="row omb_row-sm-offset-3">
+                         <div class="col-md-12 col-sm-3">
+                            <p class="omb_forgotPwd">
+                                    <a href="#">Forgot your password?</a>
+                            </p>
+                         </div>
+                      </div>
+                            <br/>
+
+                  <div class="form-group ">
+                     <button type="submit" class="btn btn-lg btn-block login-button" style = "color:  #ffffff; background-color: #32CD32
+; border-radius: 10px;">Log me in!</button>
+                  </div>
+                         <div class="row omb_row-sm-offset-3">
+                             <div class="col-md-12 col-sm-3">
+                            <label class="checkbox">
+                           <input type="checkbox" value="remember-me">Remember Me
+                            </label>
+                            </div>
+                        </div>
+                         <div class="login-or" style = " position: relative; font-size: 18px; color: #aaa; margin-top: 10px;margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px";>
+                            <hr class="hr-or" style = " background-color: #cdcdcd; height: 1px; margin-top: 0px !important; margin-bottom: 0px !important;">
+                            <span class="span-or" style = "display: block; position: absolute; left: 50%;top: -2px; margin-left: -25px; background-color: #fff; width: 50px; text-align: center;">or</span>
+                        </div>
+                        <div class="form-group ">
+                     <button type="button" class="btn btn-lg btn-block login-button" style = "color:  #ffffff; background-color: #3b5998
+; border-radius: 10px;">Log in with Facebook!</button>
+
+                  </div>
+                   <br/>
+                   <div>
+                        <p style=" font-size: 13px">We'll never post anything on Facebook
+without your permission.</p>
+                   </div>
+                   <br/>
+
+                   <div>
+                        <hr class="hr-or" style = " background-color: #cdcdcd; position:relative; width:100%; height: 1px; margin-top: 0px !important; margin-bottom: 0px !important;">
+                    </div>
+                   <br/>
+                   <br/>
+
+                    <div>
+                        <h3 style=" font-size: 15px; text-align: center">New To PatentPicks? <a href="/register/"><span style="color:blue">Sign Up</span></a></h3>
+                   </div>
+               </form>
+         </div>
+      </div>
+
+      <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+   </body>
 
 {% endblock %}
