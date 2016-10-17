@@ -68,15 +68,17 @@ def register(request):
 
     return render(request, 'PP_Core/register.html', {'form': form, "title_from_view":title_from_view})
 
+
+
 def login_view(request):
 
 
     form = UserLoginForm(request.POST or None)
-    print(request.user)
-    print(request.user.is_authenticated)
+    #print(request.user)
+    #print(request.user.is_authenticated)
 
     if form.is_valid():
-        print("Form is valid")
+        #print("Form is valid")
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         user = authenticate(username = username, password = password)
