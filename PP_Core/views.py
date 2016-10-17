@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Invention, Category, User
-from .forms import RegisterForm
+from .forms import RegisterForm, UserLoginForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import (
     authenticate,
@@ -42,6 +42,7 @@ def register(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
+
             first_name_Val= form.cleaned_data.get('first_name')
             last_name_Val = form.cleaned_data.get('last_name')
             email_Val = form.cleaned_data.get('email')
@@ -68,8 +69,20 @@ def register(request):
     return render(request, 'PP_Core/register.html', {'form': form, "title_from_view":title_from_view})
 
 def login_view(request):
-    title_from_view = "Login"
-    return render(request, 'PP_Core/login.html', {"title_from_view":title_from_view})
 
 
+    form = UserLoginForm(request.POST or None)
+    print(request.user)
+    print(request.user.is_authenticated)
+
+    if form.is_valid():
+        print("Form is valid")
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(username = username, password = password)
+        login(request, user)
+        return redirect ('home')
+
+
+    return render(request, 'PP_Core/login.html', {"form": form})
 
