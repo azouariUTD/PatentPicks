@@ -91,3 +91,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def UserProfile_view(request):
+    title_from_view = "User Profile"
+    return render(request, 'PP_Core/userprofile.html', {"title_from_view":title_from_view})
