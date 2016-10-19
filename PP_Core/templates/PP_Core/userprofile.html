@@ -4,7 +4,61 @@
 
 {% block content %}
 
-<h1> {{ title_from_view }} </h1>
+
+
+<body style="background-color: mediumpurple">
+
+<h1 style="text-align: center"> {{ title_from_view }} </h1>
+<br>
+<br>
+
+<div style="width:100%; min-height: 425px">
+
+    <div style="width: 50%; float:left ">
+       <p style="text-align: center">Testing</p>
+        <p align="center">
+            <iframe width="500" height="330" src="https://www.youtube.com/embed/KetLDW9Afzs" frameborder="0" allowfullscreen ></iframe>
+        </p>
+    </div>
+
+    <style>
+       td {
+           border: 2px solid black;
+           height: 120px;
+           width: 120px;
+       }
+    </style>
+
+    <div style="width: 50%; float:right">
+       <p style="text-align: center"> stuff</p>
+        <table align="center">
+            <tr>
+                <td > <p align="center"> a</p></td>
+                <td > <p align="center"> b</p> </td>
+                <td "> <p align="center"> c</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+    </div>
+</div>
+<br>
+<div>
+    <p style="text-align: center">
+        <font size="8"> Have an Invention idea? Click <a style="color: blue" href="http://127.0.0.1:8000/aboutus.html">Here</a> </font>
+    </p>
+</div>
+
+<body>
+
 
 
 {% endblock %}
