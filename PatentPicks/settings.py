@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PP_Core.apps.PpCoreConfig',
+    'PP_Dashboard.apps.PpDashboardConfig'
 
 ]
 
