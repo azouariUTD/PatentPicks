@@ -4,7 +4,7 @@ from PP_Core.models import InventionDetail
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User)
+    User = models.ForeignKey(User)
     royalty_income = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
     improvement_income = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
     funding_income = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
@@ -18,7 +18,7 @@ class Profile(models.Model):
     picks_in_production = models.IntegerField()
 
     def __str__(self):
-        return self.user.first_name + " " + self.user.last_name + " " + self.user.email
+        return "dummy text"
 
 
 
