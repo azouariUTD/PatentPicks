@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.forms import TextInput, Textarea
 from django.db import models
 from .models import Category, Inventor, Invention, InventionDetail
+from PP_Dashboard.models import Profile
 
 class InventionInline(admin.TabularInline):
     model = Invention
@@ -37,5 +38,7 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Inventor, InventorAdmin)
 admin.site.register(Invention, InventionAdmin)
 admin.site.register(InventionDetail)
+
+admin.site.register(Profile)
 
 # Register your models here.
