@@ -61,7 +61,7 @@ lalala-->
         </form>
     </li>
         {% if user.is_authenticated %}
-              <li><a href="{% url 'userprofile' %}">
+              <li><a href="{% url 'dashboard' %}">
                   <img
                           src="{% static "PP_Core/userprofile.png" %}"> </a></li>
               <li><a href="{% url 'logout' %}">Log out</a></li>
