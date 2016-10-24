@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.forms import TextInput, Textarea
 from django.db import models
 from .models import Category, Inventor, Invention, InventionDetail
@@ -23,6 +24,15 @@ class InventionDetailInline(admin.TabularInline):
         models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':35})},
     }
 
+class ProfileInline(admin.TabularInline):
+    model = Profile
+    extra = 0
+    #readonly_fields = ('user','comments','improve','pledge','isHidden','isSaved',)
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'20'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':35})},
+    }
+
 
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [InventionInline]
@@ -33,11 +43,16 @@ class InventorAdmin(admin.ModelAdmin):
 class InventionAdmin(admin.ModelAdmin):
     inlines = [InventionDetailInline]
 
+class UserAdmin(admin.ModelAdmin):
+    inlines = [ProfileInline]
 
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Inventor, InventorAdmin)
 admin.site.register(Invention, InventionAdmin)
 admin.site.register(InventionDetail)
+
 
 admin.site.register(Profile)
 
