@@ -6,16 +6,16 @@
 
 
 
-<body style="background-color: green">
+<body style="background-color: mediumorchid">
 
 <h1 style="text-align: center"> {{ title_from_view }} </h1>
 <br>
 <br>
 
-<div class="container-flexible" style="width:100%;">
+<div class="container-flexible" style="width:100%; min-height: 425px">
 
     <div class="col-md-6">
-       <p style="text-align: center">Testing</p>
+       <p style="text-align: center">Video</p>
         <p align="center">
             <iframe width="500" height="330" src="https://www.youtube.com/embed/KetLDW9Afzs" frameborder="0" allowfullscreen ></iframe>
         </p>
@@ -32,7 +32,7 @@
     </style>
 
     <div class="col-md-6">
-       <p style="text-align: center"> stuff</p>
+       <p style="text-align: center"> Information</p>
         <table align="center">
             <tr>
                 <td > Inventions not selected <div id="span1" class="t"> <br>{{ person.number_of_picks }}</div></td>
@@ -51,10 +51,9 @@
             </tr>
     </table>
     </div>
-</div>
 <br>
 <br>
-<div>
+<div class="container-flexible">
     <p style="text-align: center">
         <font size="8"> <br>Have an Invention idea? Click <a style="color: blue" href="http://127.0.0.1:8000/aboutus.html">Here</a> </font>
     </p>
