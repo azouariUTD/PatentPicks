@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PP_Core.apps.PpCoreConfig',
-    'PP_Dashboard.apps.PpDashboardConfig'
+    'PP_Dashboard.apps.PpDashboardConfig',
+    'PP_InventionMgnt.apps.PpInventionmgntConfig'
 
 ]
 
@@ -63,7 +64,11 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
                 'django.template.context_processors.request',
+                'django.template.context_processors.tz',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -117,6 +122,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_ROOT = '/opt/PatentPicks/media/'
+MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from . import views
 
+
 urlpatterns = [	
     url(r'^discover/', views.discover, name='discover'),
     url(r'^howitworks/', views.howitworks, name ='howitworks'), 
@@ -11,3 +12,4 @@ urlpatterns = [
     url(r'', views.home, name='home'),
 
 ]
+
