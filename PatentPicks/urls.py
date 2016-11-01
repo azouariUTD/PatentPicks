@@ -21,5 +21,6 @@ admin.site.site_header = settings.ADMIN_SITE_HEADER
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^dashboard/', include('PP_Dashboard.urls') ),
     url(r'', include('PP_Core.urls') ),
 ]
