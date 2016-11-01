@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PP_Core.apps.PpCoreConfig',
-    'PP_Dashboard.apps.PpDashboardConfig'
+    'PP_Dashboard.apps.PpDashboardConfig',
+    'PP_Inventions.apps.PpInventionsConfig',
 
 ]
 
@@ -120,6 +121,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+
+MEDIA_ROOT = '/opt/PatentPicks/media/'
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 ADMIN_SITE_HEADER = "Patent Picks Administration"
