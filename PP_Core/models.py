@@ -17,7 +17,7 @@ class Category(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return self.category_name + " " + str(self.quantity) + " patents."
+        return self.category_name
 
     class Meta:
         verbose_name_plural = "categories"
