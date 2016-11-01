@@ -17,7 +17,7 @@ class Category(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return self.category_name + " " + str(self.quantity) + " patents."
+        return self.category_name
 
     class Meta:
         verbose_name_plural = "categories"
@@ -28,7 +28,7 @@ class Invention(models.Model):
     category = models.ForeignKey(Category)
     invention_name = models.CharField(max_length=250)
     description = models.TextField()
-    picture = models.ImageField(upload_to='static/PP_core/', default='static/PP_core/PP_Logo.png')
+    picture = models.ImageField(upload_to='inventions', default='inventions/default.jpeg')
     video = models.URLField(max_length=200)
     price = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
 
