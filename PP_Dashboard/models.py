@@ -18,7 +18,8 @@ class Profile(models.Model):
     picks_in_production = models.IntegerField()
 
     def __str__(self):
-        return self.user.first_name + " " + self.user.last_name + " " + self.user.email
+        return  "" + self.user.username
+
 
 
 
