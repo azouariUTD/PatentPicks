@@ -1,0 +1,17 @@
+{% extends 'PP_Core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <form method="post" enctype="multipart/form-data">
+        {{ form.as_p }}
+
+        <p>
+            <input type="submit" name="Add"/>
+        </p>
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
