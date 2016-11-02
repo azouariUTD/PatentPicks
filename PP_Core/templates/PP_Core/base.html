@@ -1,52 +1,55 @@
-
 {% load staticfiles %}
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
 
-        <title>Patent Picks</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png" href="{% static "PP_Core/images/favicon.ico" %}"/>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-          <!-- Google Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Patent Picks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static "PP_Core/images/favicon.ico" %}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
 
-<link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    </head>
+
+    <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
+
+</head>
 <body>
 
 
 <style>
-.nav__menu__uline__green a:hover { border-bottom:3px solid #26CC40;}
+    .nav__menu__uline__green a:hover {
+        border-bottom: 3px solid #26CC40;
+    }
 </style>
 <nav class="navbar navbar-default nav__menu__uline__green" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
 
-    <!-- Beginning of Navbar -->
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-left">
-        <li><a href="{% url 'discover' %}">Discover</a></li>
-        <li><a href="{% url 'howitworks' %}">How it Works</a></li>
-        <li><a href="{% url 'aboutus' %}">About us</a></li>
-    </ul>
+        <!-- Beginning of Navbar -->
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="{% url 'discover' %}">Discover</a></li>
+            <li><a href="{% url 'howitworks' %}">How it Works</a></li>
+            <li><a href="{% url 'aboutus' %}">About us</a></li>
+        </ul>
 
-    <a href="{%url 'home' %}"> <img class="navbar-brand text-hide" src="{% static "PP_Core/images/PP_Logo.png" %}" alt="Patent Pick Logo" style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
+        <a href="{% url 'home' %}"> <img class="navbar-brand text-hide" src="{% static "PP_Core/images/PP_Logo.png" %}"
+                                         alt="Patent Pick Logo"
+                                         style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
 
     <ul class="nav navbar-nav navbar-right">
        <li>
@@ -60,21 +63,24 @@
         </form>
     </li>
         {% if user.is_authenticated %}
+              <li><a href="{% url 'dashboard' %}">
+                  <img
+                          src="{% static "PP_Core/userprofile.png" %}"> </a></li>
               <li><a href="{% url 'logout' %}">Log out</a></li>
         {% else %}
             <li><a href="{% url 'login' %}">Log in</a></li>
             <li><a href="{% url 'register' %}">Register</a></li>
 
-        {% endif %}
+            {% endif %}
 
 
-    </ul>
-  </div>
+        </ul>
+    </div>
 </nav>
-  <!-- End of Navbar -->
+<!-- End of Navbar -->
 
 {% block content %}
 {% endblock %}
 
-    </body>
+</body>
 </html>
