@@ -4,22 +4,115 @@
 
 {% block content %}
 
-	<!-- cool loop-->
+
+
+<body style="background-color: #F0F8FF ">
+<style>
+    .nav__menu__uline__green a:hover {
+        border-bottom: 3px solid #26CC40;
+    }
+
+</style>
+<nav class="navbar navbar-default nav__menu__uline__green" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Beginning of Navbar -->
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+           <li class = "dropdown">
+               <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"> SECTIONS <span class = "caret"></span></a>
+               <ul class = "dropdown-menu">
+                   <li><a href = "#">Discover</a></li>
+                   <li><a href = "#">About Us</a></li>
+                   <li><a href = "#">Random stuff</a></li>
+                   <li><a href = "#">Needs to be filled</a></li>
+               </ul>
+           </li>
+        </ul>
+
+        <a href="{% url 'home' %}"> <img class="navbar-brand text-hide" src="{% static "PP_Core/images/PP_Logo.png" %}"
+                                         alt="Patent Pick Logo"
+                                         style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+            {% else %}
+                <h4><a href="{% url 'login' %}">Sign In / </a> <a href="{% url 'register' %}">Register</a> &nbsp; &nbsp;</h4>
+
+
+            {% endif %}
+
+
+        </ul>
+    </div>
+</nav>
+<h1 style="text-align: center"> {{ title_from_view }} </h1>
+<br>
+<br>
+
+<div class="container-flexible" style="width:100%; min-height: 425px">
+
+    <div class="col-md-4">
+        <p align="center">
+            <iframe width="500" height="365" src="https://www.youtube.com/embed/KetLDW9Afzs" frameborder="0" allowfullscreen ></iframe>
+        </p>
+        <h1 style="text-align: center; font-family: 'Playfair Display', serif; "> Explainer Video</h1>>
+    </div>
 
     <style>
-   .jumbotron{
+       td {
+           border: 8px solid #F0F8FF;
+           border-radius: 20px;
+           background-color: #D8BFD8;
+           height: 120px;
+           width: 120px;
+           text-align: center;
+           font-family: 'Playfair Display', serif;
+           font-size: large;
 
-       background: gray;
-       /* picture makes a rather odd size
-       background-image: url("{% static "PP_Core/images/background.jpg" %}");
-       */
-   }
 
+       }
     </style>
 
- <div class="jumbotron container-fluid text-center " style="color: deepskyblue">
-      <h1> Where Ideas Break the Surface </h1>
- </div>
+    <div class="col-md-8" >
+        <table align="center" style=" width:600px; border-width: 10px">
+            <tr style = "border-width: 10px">
+                <td> Inventions not selected <div id="span1" class="t"> <br>132</div></td>
+                <td > Inventions selected <div id="span1" class="t"> <br> 0</div></td>
+                <td > Inventions hidden <div id="span1" class="t"><br> 0 </div></td>
+            </tr>
+            <tr>
+                <td> Inventions saved <div id="span1" class="t"><br> 0</div></td>
+                <td> Suggested improvments <div id="span1" class="t"><br> 0</div></td>
+                <td> Improvement income <div id="span1" class="t"><br> $0</div></td>
+            </tr>
+            <tr>
+                <td> Inventions viewed <div id="span1" class="t"><br> 0</div></td>
+                <td> Inventions not viewed <div id="span1" class="t"><br> 0</div></td>
+                <td> Royalty income <div id="span1" class="t"><br> $0 </div></td>
+            </tr>
+    </table>
+        <br />
+        <a class="btn btn-primary" style =  "align: right; font-size:large;font-family: 'Playfair Display', serif;  width: 70%; height: 110%; float: right; margin-right: 3cm; border-radius: 10px" href="#" role="button">View / Select Inventions</a>
+
+    </div>
+
+        <div class="container" style =  "margin-bottom: 50px">
+            <p style="text-align: center;  font-family: 'Playfair Display', serif; font-size: 60px;">
+                 <br>Have an Invention Idea? Click <a style="color: blue" href="http://127.0.0.1:8000/aboutus.html">Here</a>
+            </p>
+        </div>
+
+
+<body>
 
 
 
