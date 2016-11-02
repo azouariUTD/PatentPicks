@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Invention, Category, User
+from PP_Dashboard.models import Profile
 from .forms import RegisterForm, UserLoginForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import (
@@ -13,7 +14,8 @@ from django.contrib.auth import (
 # Create your views here.
 def home(request):
     inventions = Invention.objects.all()
-    return render(request, 'PP_Core/home.html', {'inventions':inventions})
+    person = Profile()
+    return render(request, 'PP_Core/home.html', {'inventions':inventions,'person':person})
 
 def discover(request):
     categories = Category.objects.all()
