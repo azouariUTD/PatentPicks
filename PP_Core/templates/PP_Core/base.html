@@ -21,6 +21,48 @@
 
     <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
 
+    <nav class="navbar navbar-default nav__menu__uline__green" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Beginning of Navbar -->
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+           <li class = "dropdown">
+               <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"> NAVIGATION <span class = "caret"></span></a>
+               <ul class = "dropdown-menu">
+                   <li><a href = "{% url 'discover' %}">Discover</a></li>
+                   <li><a href = "{% url 'aboutus' %}">About Us</a></li>
+                   <li><a href = "#">Random stuff</a></li>
+                   <li><a href = "#">Needs to be filled</a></li>
+               </ul>
+           </li>
+        </ul>
+
+        <a href="{% url 'home' %}"> <img class="navbar-brand text-hide" src="{% static "PP_Core/images/PP_Logo.png" %}"
+                                         alt="Patent Pick Logo"
+                                         style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+            {% else %}
+                <h4><a href="{% url 'login' %}">Sign In / </a> <a href="{% url 'register' %}">Register</a> &nbsp; &nbsp;</h4>
+
+
+            {% endif %}
+
+
+        </ul>
+    </div>
+</nav>
+
 </head>
 <body>
 
