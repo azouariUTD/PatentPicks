@@ -21,8 +21,10 @@ from django.conf.urls.static import static
 admin.site.site_header = settings.ADMIN_SITE_HEADER
 
 urlpatterns = [
+
     url(r'^admin/', admin.site.urls),
     url(r'^dashboard/', include('PP_Dashboard.urls')),
     url(r'^add_invention/', include('PP_Inventions.urls')),
     url(r'', include('PP_Core.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
