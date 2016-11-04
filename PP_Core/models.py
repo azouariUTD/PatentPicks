@@ -28,7 +28,7 @@ class Invention(models.Model):
     category = models.ForeignKey(Category)
     invention_name = models.CharField(max_length=250)
     description = models.TextField()
-    picture = models.ImageField(upload_to='inventions/%Y/%m/%d/', default='inventions/default.jpeg')
+    picture = models.ImageField(upload_to='inventions/%Y/%m/%d/')
     video = models.URLField(max_length=200)
     price = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
 
