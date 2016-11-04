@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 class InventionForm(forms.ModelForm):
     class Meta:
         model = Invention
-        fields = ['category', 'invention_name', 'description', 'picture', 'video', 'price' ]
+        fields = ['category', 'invention_name', 'description', 'picture', 'video', 'price']
 
     def clean(self):
         cleaned_data = super(InventionForm, self).clean()
