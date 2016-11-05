@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from PP_Core.models import Inventor,Invention
+from PP_Core.models import Inventor
 from PP_Inventions.forms import InventionForm
+from django.views import generic
+
 
 def add_invention(request):
     if request.method == 'POST':
@@ -14,3 +16,4 @@ def add_invention(request):
         form = InventionForm()
 
     return render(request, 'PP_Inventions/add_invention.html', {'form': form})
+
