@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from PP_Core.models import Inventor
+from PP_Core.models import Inventor, Invention
 from PP_Inventions.forms import InventionForm
 from django.views import generic
 
@@ -17,3 +17,13 @@ def add_invention(request):
 
     return render(request, 'PP_Inventions/add_invention.html', {'form': form})
 
+
+def InventionDetails(request):
+    inventionList = Invention.objects.all()
+    data = {
+        'inventionList': inventionList,
+    }
+
+    template = 'PP_Inventions/inventions.html'
+
+    return render(request, template, data)

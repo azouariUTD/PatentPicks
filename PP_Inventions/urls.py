@@ -3,5 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'', views.add_invention, name='add_invention'),
+    url(r'^inventions', views.InventionDetails, name='InventionDetails'),
+    url(r'^add_invention', views.add_invention, name='add_invention'),
+
 ]

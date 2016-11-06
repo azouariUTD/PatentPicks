@@ -1,0 +1,48 @@
+{% extends 'PP_Core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+
+            </div>
+
+
+            <div class="col-sm-10">
+                {% if inventionList %}
+
+
+
+
+                    {% for invention in inventionList %}
+                        <div class="floating-box">
+                            <img src="{{ MEDIA_URL }}{{ invention.picture }}" class="img-thumbnail" width="248"
+                                 height="139"/>
+                            <p class="invention-title">{{ invention.invention_name }}</p>
+                            <p class="invention-author">{{ invention.inventor.user.first_name }} {{ invention.inventor.user.last_name }}</p>
+                            <p>Current Price: ${{ invention.price }}</p>
+                        </div>
+                    {% endfor %}
+
+
+
+
+                {% endif %}
+
+            </div>
+
+            <div class="col-sm-1">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
