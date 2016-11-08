@@ -5,153 +5,125 @@
 
 <style>
 
-.col-xs-5ths,
-.col-sm-5ths,
-.col-md-5ths,
-.col-lg-5ths {
-    position: relative;
-    min-height: 1px;
-    padding-right: 3px;
-    padding-left: 3px;
+.parent-wrapper {
+    height:100%;
+    width:100%;
+}
+.parent {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+	font: normal normal 500 1.4em/4em "Helvetica", Sans serif;
+	overflow: hidden;
+	line-height:normal;
+}
+.child {
+  	text-align: center;
+	align-items: center;
+	justify-content: center;
+    border: transparent;
+    flex-grow: 1;
+    height:102px;
+}
 
-      position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+.category-container {
+	width: 20%;
+}
+
+.mb3 {
+    margin-bottom: 1.8rem;
+}
+
+.mobile-col{
+    float:left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.px3 {
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+    position:relative;
+}
+
+.container-flex {
+    max-width: 1040px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.border {
+
+	height:100%;
+	width: 90%;
+    border: 0.1rem solid #DCDEDD;
+    border-top-color: rgb(220, 222, 221);
+    border-top-style: solid;
+    border-top-width: 0.1rem;
+    border-right-color: rgb(220, 222, 221);
+    border-right-style: solid;
+    border-right-width: 0.1rem;
+    border-bottom-color: rgb(220, 222, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+    border-left-color: rgb(220, 222, 221);
+    border-left-style: solid;
+    border-left-width: 0.1rem;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+.bg-white {
+    background-color: #FFFFFF;
+}
+
+.block {
+    display: block;
+}
+
+.clip {
+    overflow: hidden;
+}
+.grey-dark {
+    color: #3D3D66;
+}
+
+.rounded {
+    border-radius: 2px;
+}
+
+.child2 {
+  	text-align: center;
+	align-items: center;
+  	justify-content: center;
+    display: flex;
+    height:102px;
+}
+
+@media screen and (max-width: 650px) {
+  .container { flex-wrap: wrap;  }
+  .child{ flex-basis: 100%; }
+  .flex-item{ flex-basis: 100%; }
 
 }
 
-.col-xs-5ths {
-    width: 20%;
-    float: center;
-    margin:0;
+.navbar{
+    margin-bottom: 0px;
 }
-@media (min-width: 768px) {
-.col-sm-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 992px) {
-    .col-md-5ths {
-        width: 20%;
-        float: left;
-        margin:0;
-    }
-}
-@media (min-width: 1200px) {
-    .col-lg-5ths {
-        width: 20%;
-        float: left;
-        margin:0;
-    }
+.jumbotron {
+    margin-top:0px;
+    margin-bottom: 50px;
+    background: transparent;
 }
 
-
-
-[class*="col-"] {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.c--anim-btn span {
-  color: black;
-  text-decoration: none;
-
-  /* centers the text in each box */
-  text-align: center;
-  display: block;
-}
-
-span {
-
-    vertical-align: middle;
-    line-height: normal;
-
-    /* these here vertically center the text*/
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-
-}
-
-.c--anim-btn {
-
-  /* controls properties of the box prior to mouse hover*/
-  border-style: solid;
-  border-color: grey;
-  height: 84px;
-  font: normal normal 700 1.3em/1em "Arial Narrow", Helvetica, sans-serif;
-  overflow: hidden;
-  width: 140px;
-  background-color: white;
-
-}
-
-.c--anim-btn, .c-anim-btn_1 {
-  /*  how fast the hover color change is, height of the color thing*/
-  transition: 0.28s;
-  height:74px;
-}
-
-.c-anim-btn_1{
-  margin-top: -4.25em;
-
-}
-
-/* changing this margin makes the category label go down farther on the hover */
-.c--anim-btn:hover .c-anim-btn_1{
-  margin-top: 0em;
-}
-
-.boxprops1
-{
-	/* background-color: yellow; */
-	margin-left:100px;
-}
-.boxprops2
-{
-	/* background-color: yellow; */
-	margin-left:55px;
-}
-
-.boxprops3
-{
-
-	/* background-color: yellow; */
-	margin-left:15px;
-}
-
-.boxprops4
-{
-	/* background-color: yellow; */
-	margin-left:-25px;
-}
-
-.boxprops5
-{
-	/* background-color: yellow; */
-	margin-left:-80px;
-}
-
-
-/*
-.zeWord {
-     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
-
-}
-*/
-
-.jumbotron{
-	background-color: #F0F8FF;
-
-}
-
-.container {
-margin-top: 38px;
-
+body {
+    background-color: lightblue;
 }
 </style>
 
@@ -160,249 +132,24 @@ margin-top: 38px;
   <p>20 diverse categories. Thousands of amazing inventions.</p>
 </div>
 
+<!-- 5 x 4 categories page -->
 <div class="container">
-    <div class="col-md-5ths col-xs-6">
-	<div class="boxprops1">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FFBDAB">
-		<span>{{ categoryAmounts.0}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.0}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops2">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FFFB78">
-		<span>{{ categoryAmounts.1}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.1}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops3">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FF81AC">
-		<span>{{ categoryAmounts.2}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.2}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops4">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #A695F9">
-		<span>{{ categoryAmounts.3}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.3}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops5">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #2752FF">
-		<span>{{ categoryAmounts.4}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.4}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops1">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FF9FD6">
-		<span>{{ categoryAmounts.5}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.5}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops2">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FF596E">
-		<span>{{ categoryAmounts.6}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.6}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops3">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FF3642">
-		<span>{{ categoryAmounts.7}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.7}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops4">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #00C9AB">
-		<span>{{ categoryAmounts.8}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.8}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops5">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #12BCEA">
-		<span>{{ categoryAmounts.9}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.9}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops1">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #A5FFD3">
-		<span>{{ categoryAmounts.10}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.10}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops2">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #00E3E5">
-		<span>{{ categoryAmounts.11}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.11}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops3">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #E2DCD0">
-		<span>{{ categoryAmounts.12}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.12}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops4">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #6396FC">
-		<span>{{ categoryAmounts.13}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.13}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops5">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FF7D5F">
-		<span>{{ categoryAmounts.14}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.14}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops1">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #2BDE73">
-		<span>{{ categoryAmounts.15}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.15}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops2">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #A695F9">
-		<span>{{ categoryAmounts.16}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.16}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops3">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #FFFB78">
-		<span>{{ categoryAmounts.17}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.17}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops4">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #80809E">
-		<span>{{ categoryAmounts.18}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.18}} </span>
-	</div>
-	</div>
-</div>
-
-<div class="col-md-5ths col-xs-6">
-	<div class="boxprops5">
-	<div class="c--anim-btn" >
-		<span class="c-anim-btn_1" style="background-color: #060F46">
-		<span>{{ categoryAmounts.19}}: inventions
-		</span>
-		</span>
-		<span>{{ categoryNames.19}} </span>
-	</div>
-	</div>
+    <div class="parent-wrapper">
+        <div class="parent px3 container-flex">
+            {% for category in categories %}
+            <div class="category-container  mobile-col mb3 child"><div class="child2 border bg-white block clip grey-dark rounded">{{ category.category_name }} </div></div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 
 </div>
+
+
+
+
+
 
 {% endblock %}
 </div>
