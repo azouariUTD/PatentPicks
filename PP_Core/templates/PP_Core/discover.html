@@ -1,135 +1,47 @@
 {% extends 'PP_Core/base.html' %}
-{% load static %}
-
+{% load staticfiles %}
 {% block content %}
 
+     <!-- Reset CSS reduces browser inconsistancies: default line heights, margins, etc. fixes many things when putting the JS animation on
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+     -->
+    <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
+
 <style>
-
-.parent-wrapper {
-    height:100%;
-    width:100%;
+/*
+When these CSS selectors are put in PP_Core.css where they belong, visual  errors occur
+*/
+*
+{
+    font-family: Helvetica;
 }
-.parent {
-    display: flex;
-    flex-wrap:wrap;
-    flex-direction: row;
-	font: normal normal 500 1.4em/4em "Helvetica", Sans serif;
-	overflow: hidden;
-	line-height:normal;
-}
-.child {
-  	text-align: center;
-	align-items: center;
-	justify-content: center;
-    border: transparent;
-    flex-grow: 1;
-    height:102px;
-}
-
-.category-container {
-	width: 20%;
-}
-
-.mb3 {
-    margin-bottom: 1.8rem;
-}
-
-.mobile-col{
-    float:left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.px3 {
-    padding-right: 1.8rem;
-    padding-left: 1.8rem;
-    position:relative;
-}
-
-.container-flex {
-    max-width: 1040px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.border {
-
-	height:100%;
-	width: 90%;
-    border: 0.1rem solid #DCDEDD;
-    border-top-color: rgb(220, 222, 221);
-    border-top-style: solid;
-    border-top-width: 0.1rem;
-    border-right-color: rgb(220, 222, 221);
-    border-right-style: solid;
-    border-right-width: 0.1rem;
-    border-bottom-color: rgb(220, 222, 221);
-    border-bottom-style: solid;
-    border-bottom-width: 0.1rem;
-    border-left-color: rgb(220, 222, 221);
-    border-left-style: solid;
-    border-left-width: 0.1rem;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-}
-
-.bg-white {
-    background-color: #FFFFFF;
-}
-
-.block {
-    display: block;
-}
-
-.clip {
-    overflow: hidden;
-}
-.grey-dark {
-    color: #3D3D66;
-}
-
-.rounded {
-    border-radius: 2px;
-}
-
-.child2 {
-  	text-align: center;
-	align-items: center;
-  	justify-content: center;
-    display: flex;
-    height:102px;
-}
-
-@media screen and (max-width: 650px) {
-  .container { flex-wrap: wrap;  }
-  .child{ flex-basis: 100%; }
-  .flex-item{ flex-basis: 100%; }
-
-}
-
-.navbar{
-    margin-bottom: 0px;
+body {
+    background-image: url('{% static 'PP_Core/images/colorbg.jpg' %}');
+    background-repeat:repeat;
+    background-size:100%;
 }
 .jumbotron {
     margin-top:0px;
-    margin-bottom: 50px;
+    color:white;
     background: transparent;
-}
-
-body {
-    background-color: lightblue;
 }
 </style>
 
+    <!--
+     in the jumbotron block a text word switching function is commented out because it doesn't work quite right
+     it needs something akin to the skrollable JS library so it doesn't look schizophrenic
+    -->
 <div class="jumbotron text-center">
-  <h1>Discover</h1>
-  <p>20 diverse categories. Thousands of amazing inventions.</p>
+      <h1>
+        <!--  <div class="wrap">
+            <ul id="sentence">
+                <li id="first"> -->Explore a<!--</li>
+                <ul id="adjList"></ul>
+                <li id="last">--> creative universe <!--</li>
+            </ul>
+          </div>-->
+      </h1>
+     <p class="f5 bold mb0">  20 diverse categories. Thousands of amazing inventions. </p>
 </div>
 
 <!-- 5 x 4 categories page -->
@@ -143,12 +55,11 @@ body {
     </div>
 </div>
 
-
-</div>
-
-
-
-
+    <!--
+        We may want to put this in base rationale: this JS file will only be used on this page,
+           we don't need to load this for every page load.
+    -->
+    <script type="text/javascript" src="{% static 'PP_Core/js/index.js' %}"></script>
 
 
 {% endblock %}
