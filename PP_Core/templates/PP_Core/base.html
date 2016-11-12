@@ -1,81 +1,72 @@
-
 {% load staticfiles %}
 {% load static %}
+<!DOCTYPE html>
 <html>
-    <head>
+<head>
 
-        <title>Patent Picks</title>
-<link rel="shortcut icon" type="image/png" href="{% static "PP_Core/favicon.ico" %}"/>
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-lalala-->
+    <title>Patent Picks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static "PP_Core/images/favicon.ico" %}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
+    <style>
+        .nav__menu__uline__green a:hover {
+            border-bottom: 2px solid #26CC40;
+        }
+    </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
-<link rel="stylesheet" href="{% static 'css/PP_Core.css' %}">
-        
-    </head>
+</head>
 <body>
 
 
-<style>
-.nav__menu__uline__green a:hover { border-bottom:3px solid #26CC40;}
-</style>
 <nav class="navbar navbar-default nav__menu__uline__green" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
 
-    <!-- Beginning of Navbar -->
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-left">
-        <li><a href="{% url 'discover' %}">Discover</a></li>
-        <li><a href="{% url 'howitworks' %}">How it Works</a></li>
-        <li><a href="{% url 'aboutus' %}">About us</a></li>
-    </ul>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="{% url 'discover' %}">Discover</a></li>
+            <li><a href="{% url 'add_invention' %}">Add Invention</a></li>
+            <li><a href="{% url 'aboutus' %}">About us</a></li>
+        </ul>
 
-    <a href="{%url 'home' %}"> <img class="navbar-brand text-hide"  src="{% static "PP_Core/PP_Logo.png" %}" alt="Patent Pick Logo" style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
+        <a href="{% url 'home' %}"> <img class="navbar-brand text-hide" src="{% static "PP_Core/images/PP_Logo.png" %}"
+                                         alt="Patent Pick Logo"
+                                         style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
 
-    <ul class="nav navbar-nav navbar-right">
-       <li>
-      <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-        </form>
-    </li>
-        {% if user.is_authenticated %}
-              <li><a href="{% url 'logout' %}">Log out</a></li>
-        {% else %}
-            <li><a href="{% url 'login' %}">Log in</a></li>
-            <li><a href="{% url 'register' %}">Register</a></li>
+        <ul class="nav navbar-nav navbar-right">
 
-        {% endif %}
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'dashboard' %}">
+                    <img
+                            src="{% static "PP_Core/userprofile.png" %}"> </a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Log in</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+
+            {% endif %}
 
 
-    </ul>
-  </div>
+        </ul>
+    </div>
 </nav>
-  <!-- End of Navbar -->
-        
+<!-- End of Navbar -->
+
 {% block content %}
 {% endblock %}
 
-    </body>
+</body>
 </html>

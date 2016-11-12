@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Inventor(models.Model):
     user = models.ForeignKey(User)
     bio = models.TextField()
+    add_date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.user.email
@@ -15,6 +16,7 @@ class Category(models.Model):
     category_name = models.CharField(max_length=60)
     category_description = models.TextField()
     quantity = models.IntegerField()
+    add_date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.category_name
@@ -28,9 +30,10 @@ class Invention(models.Model):
     category = models.ForeignKey(Category)
     invention_name = models.CharField(max_length=250)
     description = models.TextField()
-    picture = models.ImageField(upload_to='static/PP_core/', default='static/PP_core/PP_Logo.png')
+    picture = models.ImageField(upload_to='inventions/%Y/%m/%d/')
     video = models.URLField(max_length=200)
     price = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
+    add_date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.invention_name
@@ -46,6 +49,7 @@ class InventionDetail(models.Model):
     isSaved = models.BooleanField()
     isViewed = models.BooleanField()
     isPicked = models.BooleanField()
+    add_date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.user.email + ' ' + self.invention.invention_name

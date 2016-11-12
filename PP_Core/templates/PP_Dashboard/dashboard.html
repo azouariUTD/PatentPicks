@@ -1,0 +1,78 @@
+
+{% extends 'PP_Core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<body style="background-color: #F0F8FF ">
+<style>
+    .nav__menu__uline__green a:hover {
+        border-bottom: 3px solid #26CC40;
+    }
+
+</style>
+
+</br>
+</br>
+
+<div class="container-flexible" style="width:100%; min-height: 425px">
+
+    <div class="col-md-4">
+        <p align="center">
+            <iframe width="500" height="365" src="https://www.youtube.com/embed/KetLDW9Afzs" frameborder="0" allowfullscreen ></iframe>
+        </p>
+        <h1 style="text-align: center; font-family: 'Playfair Display', serif; "> Explainer Video</h1>>
+    </div>
+
+    <style>
+       td {
+           border: 8px solid #F0F8FF;
+           border-radius: 20px;
+           background-color: #D8BFD8;
+           height: 120px;
+           width: 120px;
+           text-align: center;
+           font-family: 'Playfair Display', serif;
+           font-size: large;
+
+
+       }
+    </style>
+
+    <div class="col-md-8" >
+        <table align="center" style=" width:600px; border-width: 10px">
+            <tr style = "border-width: 10px">
+                <td > Inventions not selected <div id="span1" class="t"> <br>{{ person.number_of_picks }}</div></td>
+                <td > Inventions selected <div id="span1" class="t"> <br> {{ person.picks_in_production }}</div></td>
+                <td > Inventions hidden <div id="span1" class="t"><br> {{ person.inventions_hidden }}</div></td>
+            </tr>
+            <tr>
+                <td> Inventions saved <div id="span1" class="t"><br> {{ person.inventions_saved }}</div></td>
+                <td> Suggested improvments <div id="span1" class="t"><br> 0</div></td>
+                <td> Improvement income <div id="span1" class="t"><br> ${{ person.improvement_income }}</div></td>
+            </tr>
+            <tr>
+                <td> Inventions viewed <div id="span1" class="t"><br> {{ person.inventions_viewed }}</div></td>
+                <td> Inventions not viewed <div id="span1" class="t"><br> {{ person.inventions_not_viewed }}</div></td>
+                <td> Royalty income <div id="span1" class="t"><br> ${{ person.royalty_income }}</div></td>
+            </tr>
+    </table>
+        <br />
+        <a class="btn btn-primary" style =  "align: right; font-size:large;font-family: 'Playfair Display', serif;  width: 70%; height: 110%; float: right; margin-right: 3cm; border-radius: 10px" href="{% url 'discover' %}" role="button">View / Select Inventions</a>
+
+    </div>
+
+        <div class="container" style =  "margin-bottom: 50px">
+            <p style="text-align: center;  font-family: 'Playfair Display', serif; font-size: 60px;">
+                 <br>Have an Invention Idea? Click <a style="color: blue" href="{% url 'add_invention' %}">Here</a>
+            </p>
+        </div>
+
+
+<body>
+
+
+
+{% endblock %}

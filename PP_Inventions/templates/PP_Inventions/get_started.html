@@ -1,0 +1,75 @@
+
+{% extends 'PP_Core/base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="background-image: url('{% static "PP_Inventions/images/semicircle.png" %}'); background-size: 100%;>
+<div class="container-flexible">
+    <br>
+    <br>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <h1  style="color: blue; font-size: 400%">Get started</h1>
+            <br>
+            <br>
+            <p >Choose a Categroy</p>
+                <div class="dropdown">
+                     <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                     data-toggle="dropdown">
+                     Categories
+                     <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+                         {% for foo in categoryNames %}
+                             <li role="presentation">
+                         <a role="menuitem" tabindex="1" href="#"> {{ foo }}</a>
+                            </li>
+
+                         {% endfor %}
+
+                     </ul>
+                </div>
+            <br>
+            <br>
+            <p>Give your invention a title</p>
+                <div class="input-group">
+                     <input type="text" class="form-control">
+                     <span class="input-group-addon"></span>
+                </div>
+            <br>
+            <br>
+            <p>Choose your State</p>
+                <div class="dropdown">
+                     <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                     data-toggle="dropdown">
+                     States
+                     <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+                         {% for foo in categoryNames %}
+                             <li role="presentation">
+                         <a role="menuitem" tabindex="1" href="#"> To be done</a>
+                            </li>
+
+                         {% endfor %}
+
+                     </ul>
+                </div>
+
+            <br>
+            <br>
+            <a class="btn btn-success btn-lg" href="{% url 'home' %}" role="button">Save and continue</a>
+            </div>
+
+
+    </div>
+    <div class="col-md-4"></div>
+
+
+</div>
+</body>
+{% endblock %}

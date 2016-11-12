@@ -1,97 +1,71 @@
 {% extends 'PP_Core/base.html' %}
-{% load static %}
-
+{% load staticfiles %}
 {% block content %}
 
-<h1> Discover </h1>
+     <!-- Reset CSS reduces browser inconsistancies: default line heights, margins, etc. fixes many things when putting the JS animation on
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+     -->
+    <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
 
-
-<!-- Engineering tradeoff: this approach worked which has inherent virtue, flexboxes ( a seemingly better choice ) don't run on IE9 -->
 <style>
-
-
-
-
-
-
-
-.nav__menu__uline__green a:hover { border-bottom:3px solid #26CC40;}
-
-
-
-/*  from 10/12 stuff  */
-
-
-.bottomaligned {position:absolute; bottom:0; left: 0;}
-  .bottomright {position:absolute; bottom:0;  margin:7px; right: 0;}
-  .bottomleft {position:absolute; bottom:0;  left: 100px;}
-.bottomrightmiddle {position:absolute; bottom:0; right: 100px;}
-  .fixedheight { height: 100px;  width: 243px;  position:relative; border:1px solid;}
-
-
-h1 a {
-    color: #05EDF9;
+/*
+When these CSS selectors are put in PP_Core.css where they belong, visual  errors occur
+*/
+*
+{
+    font-family: Helvetica;
 }
+body {
+    background-image: url('{% static 'PP_Core/images/colorbg.jpg' %}');
+    background-repeat:repeat;
+    background-size:100%;
 
-img{
-  width:100%;
-  height:auto;
 }
-
-
-.tile {
-    width:100%;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    color:#fff;
-    height: 200px; // or whatever height you want all the tiles to be
+.jumbotron {
+    /*margin-top:0px;*/
+    color:white;
+    background: transparent;
 }
-.title {
-    margin-top: 0px;
-    text-align:center;
-}
-.purple {
-    background: #5144AB;
-}
-
-div#line1 span#a {
-display:inline;
-}
-div#line1:hover span#a {
-display:none;
-}
-div#line1 span#b {
-display:none;
-}
-div#line1:hover span#b {
-display:inline;
-}
-
 </style>
 
+    <!--
+     in the jumbotron block a text word switching function is commented out because it doesn't work quite right
+     it needs something akin to the skrollable JS library so it doesn't look schizophrenic
+    -->
+<div class="jumbotron text-center">
+      <h1>
+        <!--  <div class="wrap">
+            <ul id="sentence">
+                <li id="first">
+                -->
+                Explore a
+                <!--
+                </li>
+                <ul id="adjList"></ul>
+                <li id="last">
+                -->
+                creative universe
+                <!--</li>
+            </ul>
+          </div>-->
+      </h1>
+     <p class="f5 bold mb0">  20 diverse categories. Thousands of amazing inventions. </p>
+</div>
 
+<!-- 5 x 4 categories page -->
 <div class="container">
-<div class="col-xs-12">
-  <div class="row">
-  <h2>Discoveries</h2>
-
-    {% for category in categories %}
-<div id="line1">
-    <div class="col-md-3 col-xs-6 col-sm-6 col-lg-3" >
-    <a href="#">
-      <div class="tile purple text-center">
-        <h3 class="title" ><span id="a">{{ category.category_name }} </span><span id="b">Number of Inventions in {{category.category_name}}: {{category.quantity}}</span> </h3>
-        <div class="col-xs-12"><img class="img-responsive" style="max-height:128px; max-width:128px" /></div>
-      </div>
-    </a>
+    <div class="parent-wrapper">
+        <div class="parent px3 container-flex">
+            {% for category in categories %}
+            <div class="category-container  mobile-col mb3 child"><div class="child2 border bg-white block clip grey-dark rounded">{{ category.category_name }} </div></div>
+            {% endfor %}
+        </div>
     </div>
 </div>
-   {% endfor%}
-
-  </div>
-</div>
-</div>
+    <!--
+        We may not want to put this in base rationale: this JS file will only be used on this page,
+           we don't need to load this for every page load.
+    -->
+    <script type="text/javascript" src="{% static 'PP_Core/js/index.js' %}"></script>
 {% endblock %}
+</div>
