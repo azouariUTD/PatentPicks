@@ -19,9 +19,10 @@ body {
     background-image: url('{% static 'PP_Core/images/colorbg.jpg' %}');
     background-repeat:repeat;
     background-size:100%;
+
 }
 .jumbotron {
-    margin-top:0px;
+    /*margin-top:0px;*/
     color:white;
     background: transparent;
 }
@@ -35,9 +36,16 @@ body {
       <h1>
         <!--  <div class="wrap">
             <ul id="sentence">
-                <li id="first"> -->Explore a<!--</li>
+                <li id="first">
+                -->
+                Explore a
+                <!--
+                </li>
                 <ul id="adjList"></ul>
-                <li id="last">--> creative universe <!--</li>
+                <li id="last">
+                -->
+                creative universe
+                <!--</li>
             </ul>
           </div>-->
       </h1>
@@ -54,13 +62,10 @@ body {
         </div>
     </div>
 </div>
-
     <!--
-        We may want to put this in base rationale: this JS file will only be used on this page,
+        We may not want to put this in base rationale: this JS file will only be used on this page,
            we don't need to load this for every page load.
     -->
     <script type="text/javascript" src="{% static 'PP_Core/js/index.js' %}"></script>
-
-
 {% endblock %}
 </div>
