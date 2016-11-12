@@ -24,7 +24,7 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^dashboard/', include('PP_Dashboard.urls')),
-    url(r'^add_invention', include('PP_Inventions.urls')),
+    url(r'^PP_Inventions/', include('PP_Inventions.urls')),
     url(r'', include('PP_Core.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
