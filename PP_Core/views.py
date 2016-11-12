@@ -19,12 +19,8 @@ def home(request):
 
 def discover(request):
     categories = Category.objects.all()
-    categoryNames = []
-    categoryAmounts = []
-    for i in categories:
-        categoryNames.append(i.category_name)
-        categoryAmounts.append(i.quantity)
-    return render(request, 'PP_Core/discover.html', {"categoryAmounts":categoryAmounts,  "categoryNames":categoryNames})
+
+    return render(request, 'PP_Core/discover.html', {"categories":categories })
 
 def howitworks(request):
     title_from_view = "How it Works"
