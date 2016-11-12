@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from PP_Core.models import Inventor, Category
+from PP_Core.models import Inventor, Category, Invention
 from PP_Inventions.forms import InventionForm
 from django.views import generic
 
@@ -35,3 +35,13 @@ def get_started(request):
         categoryAmounts.append(i.quantity)
     return render(request, 'PP_Inventions/get_started.html',  {"categoryAmounts":categoryAmounts,  "categoryNames":categoryNames})
 
+
+def InventionDetails(request):
+    inventionList = Invention.objects.all()
+    data = {
+        'inventionList': inventionList,
+    }
+
+    template = 'PP_Inventions/inventions.html'
+
+    return render(request, template, data)

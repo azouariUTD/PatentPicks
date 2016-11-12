@@ -1,0 +1,26 @@
+.floating-box {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 1px solid #73AD21;
+}
+
+.invention-title {
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #3b5998;
+    font-weight: bold;
+}
+
+.invention-author {
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: cadetblue;
+    font-weight: bold;
+
+}
+.by {
+    font-family: 'Lobster';
+    color: #73AD21;
+}
