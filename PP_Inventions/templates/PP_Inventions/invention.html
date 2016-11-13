@@ -1,0 +1,22 @@
+{% extends 'PP_Core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+<h1>{{ invention.invention_name }}</h1>
+<p class="invention-author">{{ invention.inventor.user.first_name }} {{ invention.inventor.user.last_name }}</p>
+
+    <p> {{ invention.description }}</p>
+<img src="{{ MEDIA_URL }}{{ invention.picture }}">
+<p>Current Price: ${{ invention.price }}</p>
+
+{% load embed_video_tags %}
+{% video invention.video '800x600' %}
+
+<a href="/PP_Inventions/inventions.html">back to inventions</a>
+
+{% endblock %}
