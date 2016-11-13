@@ -1,78 +1,175 @@
-
 {% extends 'PP_Core/base.html' %}
 {% load static %}
 
 {% block content %}
 
-
-
-<body style="background-color: #F0F8FF ">
 <style>
-    .nav__menu__uline__green a:hover {
-        border-bottom: 3px solid #26CC40;
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*
+WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+now override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+/* just for demo purpose */
+    html,
+    body,
+    .carousel,
+    .carousel-inner,
+    .carousel-inner .item {
+      height: 100%;
     }
 
+    .item:nth-child(2) {
+        background: url("https://d3mlfyygrfdi2i.cloudfront.net/Depero-Bolted-Book-66.jpg") no-repeat center center fixed;
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+
+    }
+
+    .item:nth-child(3) {
+      background: url("https://d3mlfyygrfdi2i.cloudfront.net/985f/microscope.jpg") no-repeat center center fixed;
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .item:nth-child(4) {
+      background: url("https://d3mlfyygrfdi2i.cloudfront.net/MayFlower.jpg") no-repeat center center fixed;
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .item:nth-child(5) {
+      background: url("https://d3mlfyygrfdi2i.cloudfront.net/478b/bvb.jpg") no-repeat center center fixed;
+         -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+
+
+
+
 </style>
-
-<h1 style="text-align: center"> {{ title_from_view }} </h1>
-<br>
-<br>
-
-<div class="container-flexible" style="width:100%; min-height: 425px">
-
-    <div class="col-md-4">
-        <p align="center">
-            <iframe width="500" height="365" src="https://www.youtube.com/embed/KetLDW9Afzs" frameborder="0" allowfullscreen ></iframe>
-        </p>
-        <h1 style="text-align: center; font-family: 'Playfair Display', serif; "> Explainer Video</h1>>
-    </div>
-
-    <style>
-       td {
-           border: 8px solid #F0F8FF;
-           border-radius: 20px;
-           background-color: #D8BFD8;
-           height: 120px;
-           width: 120px;
-           text-align: center;
-           font-family: 'Playfair Display', serif;
-           font-size: large;
-
-
-       }
-    </style>
-
-    <div class="col-md-8" >
-        <table align="center" style=" width:600px; border-width: 10px">
-            <tr style = "border-width: 10px">
-                <td > Inventions not selected <div id="span1" class="t"> <br>{{ person.number_of_picks }}</div></td>
-                <td > Inventions selected <div id="span1" class="t"> <br> {{ person.picks_in_production }}</div></td>
-                <td > Inventions hidden <div id="span1" class="t"><br> {{ person.inventions_hidden }}</div></td>
-            </tr>
-            <tr>
-                <td> Inventions saved <div id="span1" class="t"><br> {{ person.inventions_saved }}</div></td>
-                <td> Suggested improvments <div id="span1" class="t"><br> 0</div></td>
-                <td> Improvement income <div id="span1" class="t"><br> ${{ person.improvement_income }}</div></td>
-            </tr>
-            <tr>
-                <td> Inventions viewed <div id="span1" class="t"><br> {{ person.inventions_viewed }}</div></td>
-                <td> Inventions not viewed <div id="span1" class="t"><br> {{ person.inventions_not_viewed }}</div></td>
-                <td> Royalty income <div id="span1" class="t"><br> ${{ person.royalty_income }}</div></td>
-            </tr>
-    </table>
-        <br />
-        <a class="btn btn-primary" style =  "align: right; font-size:large;font-family: 'Playfair Display', serif;  width: 70%; height: 110%; float: right; margin-right: 3cm; border-radius: 10px" href="{% url 'discover' %}" role="button">View / Select Inventions</a>
-
-    </div>
-
-        <div class="container" style =  "margin-bottom: 50px">
-            <p style="text-align: center;  font-family: 'Playfair Display', serif; font-size: 60px;">
-                 <br>Have an Invention Idea? Click <a style="color: blue" href="{% url 'start_invention' %}">Here</a>
-            </p>
-        </div>
-
-
 <body>
+
+    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+
+
+                         <div class = "row" >
+                              <div class="col-md-6" align="left">
+                                  <video autoplay loop height="400" >
+                                     <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"  type="video/mp4">
+                                 </video>
+                              </div>
+                             <div class="col-md-6" align = "center" style="font-family: Helvetica; font-weight: bolder" >
+                                <br>
+                                 <br>
+                                 <h1 style="font-weight: bold; font-size: 60px ">Introducing <br/> <span style = "border-bottom: 4px solid #CC99FF">Patent Picks Live</span> </h1>
+                                 <br/>
+                                 <br/>
+
+                                 <p style = "color: #aaaaaa">See how creators and backers are connecting <br/> through live video — and join the experience</p>
+                                 <br/>
+                                 <br/>
+                                 <button type="button" style = "background: #CC99FF" class="btn btn-primary btn-lg">Explore</button>
+                              </div>
+
+                          </div>
+
+            </div>
+            <div class="item">
+                <div class="carousel-caption"  align = "center" style = "bottom: 40%">
+
+                </div>
+            </div>
+            <div class="item" align="center">
+
+                <div class="carousel-caption" align = "center" style = "bottom: 40%">
+                    <h1 style = "color: white">Keep Them Ruby <br/>
+Help the Smithsonian conserve Dorothy’s iconic ruby slippers over seventy years after they first dazzled audiences in The Wizard of Oz.</h1>
+                    <button type="button" style = "background: #CC99FF" class="btn btn-primary btn-lg">View Project</button>
+                </div>
+            </div>
+             <div class="item">
+                <div class="carousel-caption" align = "center" style = "bottom: 50%">
+                    <h1 style="color: white">An Educational Voyage</h1>
+                    <p style = "color: white; font-size: 20px">After serving as a floating classroom and historical relic for decades, this reproduction of the original Mayflower requires a full restoration. Help it set sail once again.</p>
+                    <br/>
+                    <button type="button" style = "background: #CC99FF" class="btn btn-primary btn-lg">View Project</button>
+                </div>
+            </div>
+
+
+                    </div>
+             </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+</body>
 
 
 
