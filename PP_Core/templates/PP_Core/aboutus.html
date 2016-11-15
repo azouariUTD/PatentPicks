@@ -1,36 +1,168 @@
-
 {% extends 'PP_Core/base.html' %}
 {% load static %}
 
 {% block content %}
 
 <style>
-.nav__menu__uline__green a:hover { border-bottom:3px solid #26CC40;}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+
+    color: #80809E;
+}
+
+/* Change background color of links on hover; for some reason this feels tacky
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+*/
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    border-bottom: 4px solid #26CC40;
+    color:black;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}
+
+@media (min-width: 640px)
+.col-12 {
+    width: 100%;
+}
+
+@media (min-width: 640px)
+.col {
+    float: left;
+}
+
+.nav--subnav--short {
+    padding: 10px 0px;
+}
+.nav--subnav--center {
+    text-align: center;
+}
+.nav--subnav {
+    position: relative;
+    padding: 0px 0px;
+}
+
+/* This padding is the distance from the nav to the subnav */
+.nav--subnav--short .nav--subnav__item, .nav--subnav--short .nav--subnav__divider {
+    padding: 10px 0px;
+}
+
+.nav--subnav__item, .nav--subnav__divider {
+    display: inline-block;
+    margin-right: 40px;
+    vertical-align: middle;
+    padding: 15px 0px;
+}
+
+.nav--subnav__item__link--gray {
+    color: #80809E;
+}
+
+.nav--subnav__item__link {
+    font-weight: bold;
+    color: #020621;
+    font-size: 14px;
+}
 </style>
+<body>
 
-<h1> {{ title_from_view }} </h1>
+<!--
+Hello  Charter  Team  Jobs  Press  Stats  Happening
+-->
 
-    <nav class="navbar navbar-default" role="navigation">
-<div class="container">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-  <div class="navbar-collapse collapse nav__menu__uline__green">
-    <ul class="nav navbar-nav navbar-left">
-        <li><a>Hello </a></li>
-        <li><a>Charter </a></li>
-        <li><a>Team </a></li>
- 	 <li><a>Job</a></li>
- 	 <li><a>Press</a></li>
-	 <li><a>Stats</a></li>
-	 <li><a>Happening</a></li>
-    </ul>
-  </div>
+<div class="col col-12">
+    <div class="nav--subnav--short nav--subnav--center nav--subnav">
+        <ul class="tab nav--subnav__list">
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Hello')" id="defaultOpen">Hello</a></li>
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Charter')">Charter</a></li>
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Team')">Team</a></li>
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Jobs')">Jobs</a></li>
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Press')">Press</a></li>
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Stats')">Stats</a></li>
+          <li class="nav--subnav__item"><a href="javascript:void(0)" class="tablinks nav--subnav__item__link" onclick="openCity(event, 'Happening')">Happening</a></li>
+        </ul>
+    </div>
 </div>
-</nav>
 
+<div class="col col-12">
+    <div class="nav--subnav--short nav--subnav--center nav--subnav ">
+
+          <li id="Hello" class="tabcontent nav--subnav__item">
+              <h3>Hello</h3>
+              <p> Put your content here </p>
+         </li>
+
+        <li id="Charter" class="tabcontent nav--subnav__item">
+              <h3>Charter</h3>
+              <p> Put your content here </p>
+        </li>
+
+        <li id="Team" class="tabcontent nav--subnav__item">
+              <h3>Team</h3>
+              <p> Put your content here </p>
+         </li>
+
+        <li id="Jobs" class="tabcontent nav--subnav__item">
+              <h3>Jobs</h3>
+              <p> Put your content here </p>
+         </li>
+
+        <li id="Press" class="tabcontent nav--subnav__item">
+              <h3>Press</h3>
+              <p> Put your content here </p>
+         </li>
+
+        <li id="Stats" class="tabcontent nav--subnav__item">
+              <h3>Stats</h3>
+              <p> Put your content here </p>
+         </li>
+
+        <li id="Happening" class="tabcontent nav--subnav__item">
+              <h3>Happening</h3>
+              <p> Put your content here </p>
+         </li>
+    </div>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
 {% endblock %}
