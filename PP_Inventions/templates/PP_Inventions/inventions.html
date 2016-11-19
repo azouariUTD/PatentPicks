@@ -20,7 +20,7 @@
                             <img src="{{ MEDIA_URL }}{{ invention.picture }}" class="img-thumbnail" width="248"
                                  height="139"/>
                             <p class="invention-title">{{ invention.invention_name }}</p>
-
+                            <a href="/PP_Inventions/{{ invention.slug }}">The invention</a>
                             <p class="invention-author">{{ invention.inventor.user.first_name }} {{ invention.inventor.user.last_name }}</p>
                             <p>Current Price: ${{ invention.price }}</p>
                         </div>
