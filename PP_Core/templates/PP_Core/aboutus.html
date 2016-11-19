@@ -17,12 +17,13 @@ ul.tab {
 ul.tab li a {
     display: inline-block;
     color: black;
+    /*
     text-align: center;
+    */
     padding: 10px 10px;
     text-decoration: none;
     transition: 0.3s;
     font-size: 14px;
-
     color: #80809E;
 }
 
@@ -34,7 +35,7 @@ ul.tab li a:hover {
 
 /* Create an active/current tablink class */
 ul.tab li a:focus, .active {
-    border-bottom: 4px solid #26CC40;
+    border-bottom: 5px solid #26CC40;
     color:black;
 }
 
@@ -72,7 +73,7 @@ ul.tab li a:focus, .active {
 
 .nav--subnav__item, .nav--subnav__divider {
     display: inline-block;
-    margin-right: 40px;
+   /* margin-right: 40px;*/
     vertical-align: middle;
     padding: 15px 0px;
 }
@@ -87,6 +88,388 @@ ul.tab li a:focus, .active {
     font-size: 14px;
 }
 </style>
+
+    <style>
+  html, body {
+  height: 100%;
+}
+
+.jumbotron.vertical-center {
+    width:100%;
+    margin-top: -21px;
+  margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
+  background-color: red;
+  background-image: url('{% static 'PP_Core/images/woodworkerbg.jpg' %}');
+  height: 100px;
+
+    color:honeydew;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for vh unit */
+  min-height: 100vh; /* You might also want to use
+                        'height' property instead.
+
+                        Note that for percentage values of
+                        'height' or 'min-height' properties,
+                        the 'height' of the parent element
+                        should be specified explicitly.
+
+                        In this case the parent of '.vertical-center'
+                        is the <body> element */
+
+  /* Make it a flex container */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  /* Align the bootstrap's container vertically */
+    -webkit-box-align : center;
+  -webkit-align-items : center;
+       -moz-box-align : center;
+       -ms-flex-align : center;
+          align-items : center;
+
+  /* In legacy web browsers such as Firefox 9
+     we need to specify the width of the flex container */
+  width: 100%;
+
+  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+     hence the bootstrap's container won't be aligned to the center anymore.
+
+     Therefore, we should use the following declarations to get it centered again */
+         -webkit-box-pack : center;
+            -moz-box-pack : center;
+            -ms-flex-pack : center;
+  -webkit-justify-content : center;
+          justify-content : center;
+}
+
+.container {
+  background-color: transparent;
+}
+
+.bigGreen {
+    display:flex;
+    width: 35%;
+    height:300px;
+    background-color: #32CD32;
+    color:white;
+    margin-top:-10%;
+    padding:50px;
+
+    /*Helvetica is our standard, but Tiempos on kickstarter looks slick */
+    font-family: Helvetica, "Tiempos", Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+</style>
+
+    <style>
+.container-flex {
+    max-width: 1040px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.color-callout--pull-up, .image-callout--pull-up {
+    margin-top: -75px;
+}
+
+.color-callout.green, .image-callout.green {
+    background-color: #2BDE73;
+}
+
+.color-callout, .image-callout {
+    color: white;
+    position: relative;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 75px;
+    z-index: 101;
+}
+
+.color-callout {
+    padding: 100px;
+}
+.green {
+    color: #2BDE73;
+}
+
+/* change green box's font*/
+.type-lg--serif {
+    /* how the hell did text-align work, but weight didn't fucking change it*/
+
+    /*    ?    */
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 200;
+    line-height: 1.8;
+}
+.row {
+    margin-right: -1.8rem;
+    margin-left: -1.8rem;
+}
+.page-block__content {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+@media (min-width: 640px)
+.col-6 {
+    width: 50%;
+}
+@media (min-width: 640px)
+.col {
+    float: left;
+}
+
+@media (min-width: 640px)
+.col-5 {
+    width: 41.66667%;
+}
+@media (min-width: 640px)
+.col-post-1 {
+    margin-right: 8.33333%;
+}
+
+
+.col, .col-right, .col-center, .mobile-col, .px-gutter {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+}
+
+.type-xl--sans {
+    font-family: Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+#aa23 {
+	height: 250px;
+	width: 100%;
+	background-color: lightblue;
+}
+
+#fontwhite {
+	color:white;
+}
+</style>
+
+        <style>
+.container-flex {
+    max-width: 1040px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+
+.color-callout--pull-up, .image-callout--pull-up {
+    margin-top: -75px;
+}
+
+.color-callout.green, .image-callout.green {
+    background-color: #2BDE73;
+}
+
+.color-callout, .image-callout {
+
+    position: relative;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 75px;
+    z-index: 101;
+
+}
+
+.color-callout {
+    padding: 100px;
+}
+.green {
+    color: #2BDE73;
+}
+.type-lg--serif {
+    font-family:  Helvetica, "Tiempos", Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.8;
+}
+.row {
+    margin-right: -1.8rem;
+    margin-left: -1.8rem;
+}
+.page-block__content {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+@media (min-width: 640px)
+.col-6 {
+    width: 50%;
+}
+@media (min-width: 640px)
+.col {
+    float: left;
+}
+
+@media (min-width: 640px)
+.col-5 {
+    width: 41.66667%;
+}
+@media (min-width: 640px)
+.col-post-1 {
+    margin-right: 8.33333%;
+}
+
+
+.col, .col-right, .col-center, .mobile-col, .px-gutter {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+}
+
+.type-xl--sans {
+    font-family: Helvetica, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+#fontwhite {
+	color:white;
+}
+
+.community-font {
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.6rem;
+   /*text-align: left;*/
+    line-height: 1.6;
+}
+
+.col-sm-6 {
+    text-align: left;
+}
+
+</style>
+
+    <style>
+
+.container-flex {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* formatter for the title design */
+.page-block--color.page-block--color--gray {
+    background-color: #F7F5F2;
+}
+
+.page-block {
+    position: relative;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+}
+
+@media (max-width: 600px)
+.marketing-formatting .container-flex {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.container-flex {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page-block__content--tall {
+    padding-top: 125px;
+    padding-bottom: 125px;
+}
+.row {
+    margin-right: -1.8rem;
+    margin-left: -1.8rem;
+}
+
+.col-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+}
+@media (min-width: 640px)
+.col-8 {
+    width: 66.66667%;
+}
+@media (min-width: 640px)
+.col-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+.col, .col-right, .col-center, .mobile-col, .px-gutter {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+}
+
+.charter-header {
+    color: #2752ff;
+}
+.type-mega--sans {
+    font-family: Helvetica, sans-serif;
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 53px;
+}
+.type-center {
+    text-align: center;
+}
+
+.type-base--serif {
+    text-align:left;
+   font-family: Helvetica, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 100;
+    /* line-height: 1.9; */
+}
+p {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.pusher-upper{
+    margin-top:-21px;
+}
+
+
+
+</style>
+
+
+
 <body>
 
 <!--
@@ -111,18 +494,83 @@ Hello  Charter  Team  Jobs  Press  Stats  Happening
     <div class="nav--subnav--short nav--subnav--center nav--subnav ">
 
           <li id="Hello" class="tabcontent nav--subnav__item">
-              <h3>Hello</h3>
-              <p> Put your content here </p>
+              <div class="jumbotron vertical-center">
+                  <div class="container text-center">
+                    <h1>Our mission is to help bring creative projects to life.</h1>
+                  </div>
+                </div>
+
+
+              <!--Pre green box and blurbs -->
+
+              <!-- Green Callout box -->
+<div class="container-flex">
+<div class="color-callout green color-callout--pull-up">
+<div class="type-lg--serif" id="fontwhite">
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
+</div>
+</div>
+
+<div class="container-flex">
+
+	<div class="row page-block__content">
+
+		<div class="col-sm-6">
+		<p class="type-xl--sans">Our community.</p>
+		</div>
+
+	<div class="col-sm-6">
+		<p class="community-font">
+		Kickstarter is an enormous global community built around creativity and creative projects.
+            Over 10 million people, from every continent on earth, have backed a Kickstarter project.
+		</p>
+		<p class="community-font">
+		Some of those projects come from influential artists like De La Soul or Marina Abramović. Most come from amazing creative people you probably haven’t heard of — from <a class="underline-link" href="/projects/998024426/happy-canes-spring-13-canes-for-grandma" ref="hello">Grandma Pearl</a> to indie filmmakers to the band down the street.
+		</p>
+		<p class="community-font">
+		Every artist, filmmaker, designer, developer, and creator on Kickstarter has complete creative control over their work — and the opportunity to share it with a vibrant community of backers.
+		</p>
+	</div>
+
+	</div>
+</div>
+
+              <!-- post green box and blurbs-->
          </li>
 
         <li id="Charter" class="tabcontent nav--subnav__item">
-              <h3>Charter</h3>
-              <p> Put your content here </p>
+
+            <div class="pusher-upper">
+            <section class="page-block page-block--color page-block--color--gray">
+                    <div class="container-flex">
+                    <div class="row page-block__content--tall">
+                    <div class="col-8 col-center">
+                    <h1 class="type-mega--sans type-center charter-header">
+                    Kickstarter is a Benefit Corporation
+                    </h1>
+                    <p class="type-base--serif">
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur...
+                    </p>
+                    <p class="type-base--serif">
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                    </p>
+                    <p class="type-base--serif">
+                     Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                    </p>
+                    </div>
+                    </div>
+                    </div>
+                </section>
+                </div>
+
         </li>
 
         <li id="Team" class="tabcontent nav--subnav__item">
-              <h3>Team</h3>
+            <div class="jumbotron" style="background-color:#CAE1F9; color:blue;">
+            <h3>Team</h3>
               <p> Put your content here </p>
+            </div>
          </li>
 
         <li id="Jobs" class="tabcontent nav--subnav__item">
