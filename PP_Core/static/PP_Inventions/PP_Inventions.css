@@ -1,0 +1,30 @@
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
+
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+table, th, td {
+    border: 2px solid black;
+    width:100%;
+    background-color: azure;
+    table-layout: fixed;
+    text-align: center;
+    bottom: 0;
+    padding: 7px;
+
+}
+
+td:hover {
+    background-color: #73AD21;
+}
+
