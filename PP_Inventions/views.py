@@ -42,8 +42,10 @@ def get_started(request):
 
 def InventionDetails(request):
     inventionList = Invention.objects.all()
+    categoryList = Category.objects.all()
     data = {
         'inventionList': inventionList,
+        'categoryList': categoryList,
     }
 
     template = 'PP_Inventions/inventions.html'

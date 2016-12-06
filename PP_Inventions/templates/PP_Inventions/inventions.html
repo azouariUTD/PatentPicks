@@ -10,12 +10,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
           integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
+    <style>
+
+        .card-columns {
+
+    column-count: 4;
+        }
+
+    </style>
+
 
 </head>
 <body>
 
 {% block content %}
-    <nav class="navbar navbar-light role="navigation">
+    <nav class="navbar navbar-light role=" navigation">
     <ul class="nav navbar-nav float-xs-left">
 
         <li class="nav-item"><a class="nav-link" href="{% url 'discover' %}">Discover</a></li>
@@ -52,18 +61,37 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Toys & Games Sort By Price</h1>
-            <br><br>
-            <table>
-                <tr>
-                    <td><h1 class="display-5">Available Picks: 30</h1></td>
-                    <td><h1 class="display-5">Your Total Picks: 12</h1></td>
-                </tr>
 
-            </table>
+            <!-- Example single danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    Category
+                </button>
+                <div class="dropdown-menu">
+
+
+                    {% if categoryList %}
+
+
+                        {% for category in  categoryList %}
+
+                            <a class="dropdown-item" href="#">{{ category.category_name }}</a>
+
+                        {% endfor %}
+
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+
 
         </div>
     </div>
+
+
 
 
     <div class="row">
