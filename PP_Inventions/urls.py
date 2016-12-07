@@ -12,6 +12,5 @@ urlpatterns = [
     url(r'^material/', views.material, name='material' ),
     url(r'^add_invention', views.add_invention, name='add_invention'),
     url(r'^inventions', views.InventionDetails, name='InventionDetails'),
-
-
+    url(r'^(?P<slug>[\w-]+)/$', views.invention, name='invention'),
 ]

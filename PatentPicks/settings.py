@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'PP_Core.apps.PpCoreConfig',
     'PP_Dashboard.apps.PpDashboardConfig',
     'PP_Inventions.apps.PpInventionsConfig',
+     'embed_video',
 
 ]
 

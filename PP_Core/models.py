@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from autoslug import AutoSlugField
+
 
 
 # Create your models here.
@@ -34,6 +36,7 @@ class Invention(models.Model):
     video = models.URLField(max_length=200)
     price = models.DecimalField(max_digits=19, decimal_places=2, default=0.00)
     add_date = models.DateTimeField(auto_now_add=True, blank=True)
+    slug = AutoSlugField(populate_from='invention_name', unique_with='add_date__day')
 
     def __str__(self):
         return self.invention_name
