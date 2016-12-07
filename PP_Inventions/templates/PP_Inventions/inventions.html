@@ -1,37 +1,145 @@
-{% extends 'PP_Core/base.html' %}
+{% load staticfiles %}
 {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static "PP_Core/images/favicon.ico" %}"/>
+    <link rel="stylesheet" href="{% static 'PP_Inventions/PP_Inventions.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+          integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
+    <style>
+
+        .card-columns {
+
+    column-count: 4;
+        }
+
+    </style>
+
+
+</head>
+<body>
 
 {% block content %}
+    <nav class="navbar navbar-light role=" navigation">
+    <ul class="nav navbar-nav float-xs-left">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2"><p>Sort by Price</p></div>
+        <li class="nav-item"><a class="nav-link" href="{% url 'discover' %}">Discover</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'add_invention' %}">How It Works</a></li>
 
-            <div class="col-md-10">
-
-                {% if inventionList %}
-
+        <li class="nav-item"><a class="nav-link" href="{% url 'aboutus' %}">About Us</a></li>
 
 
+    </ul>
 
+    <a href="{% url 'home' %}"> <img class="navbar-brand text-hide" src="{% static "PP_Core/images/PP_Logo.png" %}"
+                                     alt="Patent Pick Logo"
+                                     style="transform: translateX(-50%); left: 50%; position: absolute; width: 200px;"/></a>
+
+
+    <ul class="nav navbar-nav float-xs-right">
+
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">
+                <img src="{% static "PP_Core/userprofile.png" %}"> </a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log in</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+
+        {% endif %}
+
+
+    </ul>
+
+    </nav>
+
+
+
+    <div class="jumbotron">
+        <div class="container">
+
+            <!-- Example single danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    Category
+                </button>
+                <div class="dropdown-menu">
+
+
+                    {% if categoryList %}
+
+
+                        {% for category in  categoryList %}
+
+                            <a class="dropdown-item" href="#">{{ category.category_name }}</a>
+
+                        {% endfor %}
+
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+
+        <div class="col-md-2">
+
+
+        </div>
+
+
+        <div class="col-md-8">
+
+
+            {% if inventionList %}
+                <div class="card-columns">
                     {% for invention in inventionList %}
-                        <div class="floating-box">
-                            <img src="{{ MEDIA_URL }}{{ invention.picture }}" class="img-thumbnail" width="248"
-                                 height="139"/>
-                            <p class="invention-title">{{ invention.invention_name }}</p>
-                            <a href="/PP_Inventions/{{ invention.slug }}">The invention</a>
-                            <p class="invention-author">{{ invention.inventor.user.first_name }} {{ invention.inventor.user.last_name }}</p>
-                            <p>Current Price: ${{ invention.price }}</p>
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ invention.picture }}"
+                                 alt="Card image cap">
+                            <div class="card-block">
+                                <a href="/PP_Inventions/{{ invention.slug }}"><h4
+                                        class="card-title>">{{ invention.invention_name }}</h4></a>
+                                <p class="card-text">
+                                    <strong>Description: </strong>{{ invention.description|truncatechars:100 }} <br>
+                                    <strong>Current Price: </strong>${{ invention.price }}<br>
+                                    <strong>Category: </strong>{{ invention.category.category_name }}<br>
+                                </p>
+                                <table>
+                                     
+                                    <tr>
+                                           
+                                        <td>Hide</td>
+                                           
+                                        <td>Save</td>
+                                           
+                                        <td>Improve</td>
+                                        <td>Select</td>
+                                         
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
                         </div>
                     {% endfor %}
-
-
-
-
-                {% endif %}
-
-            </div>
+                </div>
+            {% endif %}
 
 
         </div>
@@ -39,6 +147,26 @@
 
     </div>
 
+    <div class="col-md-2">
+
+
+    </div>
+
 
 
 {% endblock %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+        integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"
+        integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"
+        integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
