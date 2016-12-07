@@ -45,3 +45,25 @@ def InventionDetails(request):
     template = 'PP_Inventions/inventions.html'
 
     return render(request, template, data)
+
+def invention_navigation(request):
+
+    return render(request, 'PP_Inventions/invention_navigation.html')
+
+def basics(request):
+
+    return render(request, 'PP_Inventions/basics.html')
+
+def story(request):
+
+    return render(request, 'PP_Inventions/story.html')
+
+def rewards(request):
+
+    return render(request, 'PP_Inventions/rewards.html')
+
+def material(request):
+
+    return render(request, 'PP_Inventions/materializetest.html')
+
+
