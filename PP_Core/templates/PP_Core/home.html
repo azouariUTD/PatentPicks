@@ -17,7 +17,7 @@
 .carousel-fade .carousel-inner .active.right {
   left: 0;
   opacity: 0;
-  z-index: 1;
+  z-index: -10;
 }
 
 .carousel-fade .carousel-inner .next.left,
@@ -26,7 +26,7 @@
 }
 
 .carousel-fade .carousel-control {
-  z-index: 2;
+  z-index: -100;
 }
 
 /*
@@ -96,12 +96,18 @@ now override the 3.3 new styles for modern browsers & apply opacity
     }
 
 
+.pushDown {
+    margin-top:100px;
+      z-index: -1000;
+
+}
 
 
 
 </style>
 <body>
 
+<div class="pushDown">
     <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -168,7 +174,7 @@ Help the Smithsonian conserve Dorothy’s iconic ruby slippers over seventy year
         </a>
     </div>
 
-
+</div>
 </body>
 
 
