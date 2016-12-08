@@ -14,8 +14,34 @@
 
         .card-columns {
 
-    column-count: 4;
+         column-count: 4;
         }
+
+        .card-img-top {
+            height : 200px;
+            width: 100%;
+        }
+
+        .card-title {
+            height: 50px;
+            width: 100%;
+        }
+
+
+        .card-text{
+            height : 180px;
+            width: 100%;
+        }
+
+        .categorysize {
+            height : 10px;
+            width: 100%;
+
+        }
+
+
+
+
 
     </style>
 
@@ -97,10 +123,7 @@
     <div class="row">
 
         <div class="col-md-2">
-
-
         </div>
-
 
         <div class="col-md-8">
 
@@ -113,11 +136,20 @@
                                  alt="Card image cap">
                             <div class="card-block">
                                 <a href="/PP_Inventions/{{ invention.slug }}"><h4
-                                        class="card-title>">{{ invention.invention_name }}</h4></a>
+                                        class="card-title">{{ invention.invention_name }}</h4></a>
                                 <p class="card-text">
-                                    <strong>Description: </strong>{{ invention.description|truncatechars:100 }} <br>
-                                    <strong>Current Price: </strong>${{ invention.price }}<br>
+
+
+                                     <strong>Description: </strong>{{ invention.description|truncatechars:100 }} <br><br>
+
+                                    <strong>Current Price: </strong>${{ invention.price }}<br><br>
+
+
                                     <strong>Category: </strong>{{ invention.category.category_name }}<br>
+
+
+
+
                                 </p>
                                 <table>
                                      
@@ -144,13 +176,12 @@
 
         </div>
 
+     <div class="col-md-2">
+        </div>
 
     </div>
 
-    <div class="col-md-2">
 
-
-    </div>
 
 
 
