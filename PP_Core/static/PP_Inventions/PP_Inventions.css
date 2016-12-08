@@ -21,3 +21,7 @@ td:hover {
     background-color: #73AD21;
 }
 
+td {
+    font-size: small;
+}
+
