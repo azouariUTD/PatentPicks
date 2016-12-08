@@ -1,0 +1,9 @@
+{% load materializecss %}
+<form method="POST" class="viewform">{% csrf_token %}
+    {% form %}
+        {% part form.username prefix %}<i class="material-icons prefix">account_box</i>{% endpart %}
+        {% part form.email prefix %}<i class="material-icons prefix">email</i>{% endpart %}
+        {% part form.password prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
+    {% endform %}
+    <button type="submit" name="_submit" class="btn btn-primary btn-lg">Submit</button>
+</form>

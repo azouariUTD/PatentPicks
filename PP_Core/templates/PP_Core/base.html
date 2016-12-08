@@ -21,6 +21,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'PP_Core/PP_Core.css' %}">
     <style>
         .nav__menu__uline__green a:hover {
@@ -41,8 +42,9 @@
 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-            <li><a href="{% url 'discover' %}">Discover</a></li>
-            <li><a href="{% url 'add_invention' %}">Add Invention</a></li>
+            <li><a href="{% url 'discover' %}">Explore </a></li>
+            <li><a href="{% url 'basics' %}">Develop </a></li>
+            <li><a href="{% url 'add_invention' %}">Post </a></li>
             <li><a href="{% url 'aboutus' %}">About us</a></li>
         </ul>
 
@@ -54,16 +56,12 @@
 
             {% if user.is_authenticated %}
                 <li><a href="{% url 'dashboard' %}">
-                    <img
-                            src="{% static "PP_Core/userprofile.png" %}"> </a></li>
+                   <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 150%"></span>
                 <li><a href="{% url 'logout' %}">Log out</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Log in</a></li>
                 <li><a href="{% url 'register' %}">Register</a></li>
-
             {% endif %}
-
-
         </ul>
     </div>
 </nav>

@@ -232,3 +232,17 @@ a {
     font-family: 'Lobster';
     color: #73AD21;
 }
+
+.project-thumbnail {
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.ratio-16-9 .project-thumbnail>.project-thumbnail-wrap, .ratio-16-9 .project-profile-feature-image>.project-thumbnail-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

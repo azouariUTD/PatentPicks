@@ -42,8 +42,10 @@ def get_started(request):
 
 def InventionDetails(request):
     inventionList = Invention.objects.all()
+    categoryList = Category.objects.all()
     data = {
         'inventionList': inventionList,
+        'categoryList': categoryList,
     }
 
     template = 'PP_Inventions/inventions.html'
@@ -54,3 +56,25 @@ def InventionDetails(request):
 def invention(request, slug):
     invention = get_object_or_404(Invention, slug=slug)
     return render(request, 'PP_Inventions/invention.html', {'invention': invention})
+
+def invention_navigation(request):
+
+    return render(request, 'PP_Inventions/invention_navigation.html')
+
+def basics(request):
+
+    return render(request, 'PP_Inventions/basics.html')
+
+def story(request):
+
+    return render(request, 'PP_Inventions/story.html')
+
+def rewards(request):
+
+    return render(request, 'PP_Inventions/rewards.html')
+
+def material(request):
+
+    return render(request, 'PP_Inventions/materializetest.html')
+
+
