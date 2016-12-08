@@ -15,9 +15,14 @@ table, th, td {
     bottom: 0;
     padding: 7px;
 
+
 }
 
 td:hover {
     background-color: #73AD21;
+}
+
+td {
+    font-size: small;
 }
 

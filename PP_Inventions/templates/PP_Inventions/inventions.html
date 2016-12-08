@@ -14,9 +14,83 @@
 
         .card-columns {
 
-    column-count: 4;
+         column-count: 4;
         }
 
+        .card-img-top {
+            height : 200px;
+            width: 100%;
+        }
+
+        .card-title {
+            height: 50px;
+            width: 100%;
+        }
+
+
+        .card-text{
+            height : 180px;
+            width: 100%;
+        }
+
+        .categorysize {
+            height : 10px;
+            width: 100%;
+
+        }
+
+
+/* Overlay style block */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    /*font-size: 36px;*/
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #6E6D58;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+        /* End of Overlay styling */
     </style>
 
 
@@ -62,30 +136,37 @@
     <div class="jumbotron">
         <div class="container">
 
-            <!-- Example single danger button -->
-            <div class="btn-group">
-                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                    Category
-                </button>
-                <div class="dropdown-menu">
-
-
-                    {% if categoryList %}
-
-
-                        {% for category in  categoryList %}
-
-                            <a class="dropdown-item" href="#">{{ category.category_name }}</a>
-
-                        {% endfor %}
-
-
-                    {% endif %}
-
-
+                    <!-- Example single danger button -->
+                <div id="myNav" class="overlay">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeCategoryNav()"> &times; </a>
+                      <div class="overlay-content">
+                        {% if categoryList %}
+                            {% for category in  categoryList %}
+                                <a class="categoryOverlay2" href="#">{{ category.category_name }}</a>
+                            {% endfor %}
+                        {% endif %}
+                      </div>
                 </div>
-            </div>
+
+                <span style="font-size:30px;cursor:pointer" onclick="openCategoryNav()">Category </span> Sorted By
+
+                        <!-- Put price ranges here -->
+                        <div id="priceNavigation" class="overlay">
+                      <a href="javascript:void(0)" class="closebtn" onclick="closePriceNav()">&times;</a>
+                      <div class="overlay-content">
+                          <a class="priceOverlay" href="#"> $0.01 - $9.99 </a>
+                          <a class="priceOverlay" href="#"> $10.00 - $19.99 </a>
+                          <a class="priceOverlay" href="#"> $20.00 - $39.99 </a>
+                          <a class="priceOverlay" href="#"> $40.00 - $69.99 </a>
+                          <a class="priceOverlay" href="#"> $70.00 - $99.99 </a>
+                          <a class="priceOverlay" href="#"> $100.00 - $149.99 </a>
+                          <a class="priceOverlay" href="#"> $150.00 - $199.99 </a>
+                          <a class="priceOverlay" href="#"> $200.00 - $299.99 </a>
+                          <a class="priceOverlay" href="#"> $300.00 - $499.99 </a>
+                          <a class="priceOverlay" href="#"> $500.00 and Up </a>
+                      </div>
+                </div>
+                <span style="font-size:30px;cursor:pointer" onclick="openPriceNav()">Price</span>
 
 
         </div>
@@ -97,10 +178,7 @@
     <div class="row">
 
         <div class="col-md-2">
-
-
         </div>
-
 
         <div class="col-md-8">
 
@@ -113,11 +191,19 @@
                                  alt="Card image cap">
                             <div class="card-block">
                                 <a href="/PP_Inventions/{{ invention.slug }}"><h4
-                                        class="card-title>">{{ invention.invention_name }}</h4></a>
+                                        class="card-title">{{ invention.invention_name }}</h4></a>
                                 <p class="card-text">
-                                    <strong>Description: </strong>{{ invention.description|truncatechars:100 }} <br>
-                                    <strong>Current Price: </strong>${{ invention.price }}<br>
-                                    <strong>Category: </strong>{{ invention.category.category_name }}<br>
+
+
+                                     <strong>Description: </strong>{{ invention.description|truncatechars:100 }} <br><br>
+
+                                    <strong>Current Price: </strong>$<span class="aPrice">{{ invention.price }}</span><br>
+                                    <strong>Category: </strong><span class="aCategory">{{ invention.category.category_name }}</span><br>
+
+
+
+
+
                                 </p>
                                 <table>
                                      
@@ -144,13 +230,12 @@
 
         </div>
 
+     <div class="col-md-2">
+        </div>
 
     </div>
 
-    <div class="col-md-2">
 
-
-    </div>
 
 
 
@@ -166,6 +251,97 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"
         integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
         crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+
+    /* starts by hiding everything and then it selects what to show or hide */
+    $('.card').each( function(index){
+        $(this).css("display","none");
+        //$(this).closest('card').
+    });
+
+    $('.aPrice').each( function(){
+       /*
+        if ( parseInt( $(this).text() ) > 500 && !(parseInt( $(this).text() ) < 500) ) {
+            //$(this).closest(".card").hide();
+            $(this).closest(".card").show();
+       } else {
+            $(this).closest(".card").hide();
+            console.log("did this");
+    }
+    */
+       $(this).closest(".card").show();
+
+
+});
+
+}); // end of document ready
+
+/*  Overlay functions here  */
+function openCategoryNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+function closeCategoryNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+
+function openPriceNav() {
+    document.getElementById("priceNavigation").style.width = "100%";
+}
+
+function closePriceNav() {
+    document.getElementById("priceNavigation").style.width = "0%";
+}
+/* end of overlay code here */
+
+
+/*Price sorter thing*/
+$(".priceOverlay").on(  'click', function() {
+    var priceRangeAsString = $(this).text();
+
+    var regex = /[+-]?\d+(\.\d+)?/g;
+    var floats = priceRangeAsString.match(regex).map(function(v) { return parseFloat(v); });
+    var bottomThreshold = floats[0];
+    var topThreshold = floats[1];
+
+    if ( bottomThreshold >= 499.99 && bottomThreshold <= 500.01 )
+    {
+        topThreshold = 1000000000.0;
+    }
+
+    $('.aPrice').each( function(){
+    if ( parseInt( $(this).text() ) >= bottomThreshold && parseInt( $(this).text() ) <= topThreshold ) {
+    //$(this).closest(".card").hide();
+    $(this).closest(".card").show();
+    } else {
+    $(this).closest(".card").hide();
+
+    }
+
+    });
+});
+
+/*
+$(".categoryOverlay").on(  'click', function() {
+
+    var particularCategory = $(this).text();
+
+    $('.aCategory').each( function(){
+        if (  $(this).text() ===  particularCategory ) {
+        //$(this).closest(".card").hide();
+        $(this).closest(".card").show();
+        } else {
+        $(this).closest(".card").hide();
+   }
+});
+
+
+});
+*/
+
+</script>
+
 </body>
 
 
