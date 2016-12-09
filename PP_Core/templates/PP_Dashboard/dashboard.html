@@ -6,11 +6,16 @@
 
 
 
-<body style="background-color: #F0F8FF ">
+<body background = '{% static 'PP_Dashboard/images/inventions.jpg' %}'>
 <style>
     .nav__menu__uline__green a:hover {
         border-bottom: 3px solid #26CC40;
     }
+
+    body {
+    background-repeat: no-repeat;
+        background-size: cover
+}
 
 </style>
 
@@ -23,14 +28,17 @@
         <div class="col-md-4">
             <p align="center">
                 <iframe width="500" height="365" src="https://www.youtube.com/embed/KetLDW9Afzs" frameborder="0" allowfullscreen ></iframe>
+
             </p>
-            <h1 style="text-align: center; font-family: 'Playfair Display', serif; "> Explainer Video</h1>
+            <h1 style="text-align: center; font-family: 'Playfair Display'; color: white; "> Explainer Video</h1>
+
         </div>
 
         <style>
            td {
-               border: 8px solid #F0F8FF;
-               border-radius: 20px;
+
+                border: 8px solid black;
+               border-radius: 10px;
                background-color: #D8BFD8;
                height: 120px;
                width: 120px;
@@ -39,12 +47,13 @@
                font-size: large;
 
 
+
            }
         </style>
 
         <div class="col-md-8" align="center" >
-            <table align="center" style=" width:600px; border-width: 10px">
-                <tr style = "border-width: 10px">
+            <table align="center" style=" width:600px; border-width: 10px; border-spacing: 30px">
+                <tr style = "border-width: 10px; border-spacing: 10px;">
                     <td > Inventions not selected <div id="span1" class="t"> <br>{{ person.number_of_picks }}</div></td>
                     <td > Inventions selected <div id="span1" class="t"> <br> {{ person.picks_in_production }}</div></td>
                     <td > Inventions hidden <div id="span1" class="t"><br> {{ person.inventions_hidden }}</div></td>
@@ -67,7 +76,7 @@
     </div>
 
     <div class="footer" align="" >
-            <h1 style="text-align: center;  font-family: 'Playfair Display', serif; font-size: 60px;">
+            <h1 style="text-align: center; color:white; font-family: 'Playfair Display', serif; font-size: 60px;">
                  <br>Have an Invention Idea? Click <a style="color: blue" href="{% url 'start_invention' %}">Here</a>
             </h1>
         </div>
