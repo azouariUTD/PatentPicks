@@ -3,20 +3,18 @@
 
 {% block content %}
 
-<div class="flexible-container">
+    {% include "PP_Inventions/post_navigation.html" %}
 
-    {% include "PP_Inventions/invention_navigation.html" %}
-
-    <div class="col-md-2"></div>
+      <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="text-center">
             </br>
             </br>
             <p style="font-size: 250%">
-                <strong>Step 1</strong>
+                <strong>Lets get started.</strong>
             </p>
             <p style="font-size: 150%">
-                Submit a formal search to see if in fact your idea is new
+                Make a great first impression with your project’s title and image, and set your price, campaign duration, and project category.
             </p>
         </div>
 
@@ -27,18 +25,19 @@
                 </br>
 
                 <div class="col-md-12">
-                <div class="col-md-8"  style="background-color: aliceblue;padding-bottom: 20px;">
+                <div class="col-md-8" style="background-color: aliceblue;padding-bottom: 20px;">
                         </br>
                         <div class="col-md-4" style="background-color: transparent">
                             <p>
-                                <strong>Patent Description</strong>
+                                <strong>Project Image</strong>
                             </p>
                         </div>
                         <div class="col-md-8" style="background-color: #FFFFFF; border:1px dashed blue; ">
                             <input class="photo file" data-help_section="project-image-help" id="project_photo" name="project[photo]" type="file" url="/projects/123" style="position: absolute">
                             <strong>"Something"</strong>
                             <p>
-                                Write a full document describing your idea </br>
+                                This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free.
+                                </br>
                             </p>
                         </div>
                         </br>
@@ -56,7 +55,26 @@
                     a
                 </p>
 
+                <div class="col-md-12">
+                <div class="col-md-8" style="background-color: aliceblue;padding-bottom: 20px;">
+                    </br>
+                    <div class="col-md-4" style="background-color: transparent">
+                        <p>
+                            <strong>Project Title</strong>
+                        </p>
+                    </div>
+                    <div class="col-md-8" style="background-color: #FFFFFF; border:1px dashed blue; ">
+                        <p>
+                            submission zone
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p>
 
+                    </p>
+                </div>
+                </div>
 
                 <p style="color: transparent">
                     a
@@ -81,5 +99,7 @@
 
     <div class="col-md-2"></div>
 </div>
+
+
 
 {% endblock %}

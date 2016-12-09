@@ -77,4 +77,16 @@ def material(request):
 
     return render(request, 'PP_Inventions/materializetest.html')
 
+def post_basics(request):
+
+    return render(request, 'PP_Inventions/post_invention.html')
+
+def post_story(request):
+
+    return render(request, 'PP_Inventions/post_invention.html')
+
+def post_about_you(request):
+
+    return render(request, 'PP_Inventions/post_invention.html')
+
 
